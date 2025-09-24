@@ -1,10 +1,11 @@
 // src/components/Navbar.jsx
 import React, { useState } from "react";
+import Typography from '@mui/material/Typography';
+
 import {
   AppBar,
   Toolbar,
   Box,
-  Typography,
   Link as MuiLink,
   IconButton,
   Drawer,
@@ -21,6 +22,7 @@ import logo from "../assets/logo.png";
 const linkStyles = {
   color: "primary.main",
   fontWeight: "700",
+  fontSize: "1.1rem",
   textDecoration: "none",
   position: "relative",
   "&:hover": {
@@ -55,7 +57,7 @@ export default function Navbar() {
 
   return (
     <AppBar position="static" color="inherit" elevation={0}>
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: 2 }}>
+      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: 3 }}>
         {/* Logo */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <img src={logo} alt="Logo" style={{ height: "45px", marginRight: "8px" }} />
@@ -90,9 +92,9 @@ export default function Navbar() {
                   <MuiLink
                     component={Link}
                     to={link.to}
-                    sx={{ ...linkStyles, mx: 0 }}
+                    sx={{ ...linkStyles,  mx: 0 }}
                   >
-                    <ListItemText primary={link.label} />
+                    <ListItemText  primary={link.label} />
                   </MuiLink>
                 </ListItem>
               ))}
