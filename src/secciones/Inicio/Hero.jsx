@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Collapse from '@mui/material/Collapse';
 import heroImage from '../../assets/hero.png';
 import Recurso from '../../assets/Recurso.png';
 
 export const Hero = () => {
+    const [expanded, setExpanded] = useState(false);
+
+    useEffect(() => {
+        // small delay so the animation is visible after mount
+        const t = setTimeout(() => setExpanded(true), 120);
+        return () => clearTimeout(t);
+    }, []);
+
     return (
         <Box
             sx={{
@@ -35,6 +44,7 @@ export const Hero = () => {
             <Box
                 sx={{
                     position: 'relative',
+                    maxWidth: 900,
                     zIndex: 2,
                     flex: 1,
                     pl: { xs: 2, md: 10 },
@@ -47,44 +57,39 @@ export const Hero = () => {
             >
                 <p>
                     <Typography variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline' }}>
-                        Protegemos
+                        Expertos
+                    </Typography>
+                    <Typography variant="hero" sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1.5 }}
+                    >
+                        en Certificación ITSE para empresas. Tu 
+                    </Typography>
+                    <Typography variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline', ml: 1.4 }}>
+                         aliado 
                     </Typography>
                     <Typography
                         variant="hero"
                         sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1 }}
                     >
-                        lo que construyes,
-                    </Typography>
-                    <br />
-                    <Typography variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline' }}>
-                        respaldamos
-                    </Typography>
-                    <Typography
-                        variant="hero"
-                        sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1 }}
-                    >
-                        lo que sueñas.
+                        en el Norte
                     </Typography>
                 </p>
 
-                
-                
-                
+
+
+
                 <Typography
                     variant="subtitle1"
                     sx={{
                         color: '#22346C',
-                        mt: 4,
-                        maxWidth: 600,
+                        mt: 7,
+                        maxWidth: 900,
                         fontWeight: 700,
-                        
                         borderRadius: 2,
-                        
-                        fontSize: { xs: 14, md: 16 },
+                        fontSize: { xs: 14, md: 18 },
                         display: 'inline-block',
                     }}
                 >
-                    Expertos en seguridad para edificaciones, gestionamos tus certificados y licencias con respaldo profesional y cumplimiento normativo.
+                    Garantizamos la seguridad y el cumplimiento legal que su negocio necesita para operar sin interrupciones. Consulta por nuestros paquetes corporativos SST + ITSE. 
                 </Typography>
             </Box>
             {/* Imagen decorativa derecha */}
@@ -94,14 +99,25 @@ export const Hero = () => {
                     top: 0,
                     right: 0,
                     height: '100%',
-                    width: 'fit-content',
+                    width: '34%',
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-end',
                 }}
             >
-                <img
+                <Collapse
+                    in={expanded}
+                    timeout={3000}
+                    orientation="vertical"
+                    sx={{
+                        transformOrigin: 'top center',
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        justifyContent: 'flex-end',
+                    }}
+                >
+                    <img
                     src={Recurso}
                     alt="Decoración derecha"
                     style={{
@@ -112,6 +128,10 @@ export const Hero = () => {
                         userSelect: 'none',
                     }}
                 />
+               
+                </Collapse>
+
+               
             </Box>
         </Box>
     );

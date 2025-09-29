@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import Navbar from "./Components/Navbar";
+import { Navbar } from "./Components/Navbar";
 import './App.css';  
 
 // Páginas
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router >
       <Navbar />
-      <Routes>
+      <Routes >
         <Route path="/" element={<Inicio />} />
       </Routes>
     </Router>

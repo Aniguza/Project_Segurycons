@@ -16,7 +16,7 @@ const theme = createTheme({
       main: "#F28737", // naranja primario
     },
     common: {
-      white: "#FFFFFF",
+      blan: "#FFFFFF",
     },
   },
   typography: {
@@ -27,6 +27,17 @@ const theme = createTheme({
     hero: { fontSize: "3rem", fontWeight: 700, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', },
     subtitle1: { fontSize: "1.2rem", fontWeight: 400 },
     body1: { fontSize: "1rem", fontWeight: 400 },
+    menu: { 
+      display: 'block',
+      mb: 0.5,
+      color: 'common.blan',
+      textDecoration: 'underline',
+      '&:hover': {
+        color: 'orange.main',
+        textDecoration: 'underline',
+        cursor: 'pointer',
+      },
+    }
   },
 });
 
