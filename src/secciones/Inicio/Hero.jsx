@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Collapse from '@mui/material/Collapse';
 import heroImage from '../../assets/hero.png';
 import Recurso from '../../assets/Recurso.png';
+import gsap from 'gsap';
 
 export const Hero = () => {
     const [expanded, setExpanded] = useState(false);
@@ -14,6 +15,65 @@ export const Hero = () => {
         return () => clearTimeout(t);
     }, []);
 
+    useEffect(() => {
+        // Animación de texto con GSAP
+        // split chars without paid SplitText: wrap cada caracter en un <span> y animar
+        const elements = document.querySelectorAll('.hero-split');
+        const timelines = [];
+
+        elements.forEach((el, idx) => {
+            const text = el.textContent || '';
+            // keep accessibility: preserve original text for screen readers
+            el.setAttribute('aria-label', text);
+            el.setAttribute('role', 'text');
+            // clear existing visual content
+            el.innerHTML = '';
+            // create span per char
+            Array.from(text).forEach((ch) => {
+                const span = document.createElement('span');
+                span.className = 'char';
+                // inline styles to allow transforms and preserve spacing
+                span.style.display = 'inline-block';
+                span.style.whiteSpace = 'pre';
+                if (ch === ' ') {
+                    span.innerHTML = '&nbsp;';
+                    // optional small spacing class
+                } else {
+                    span.textContent = ch;
+                }
+                el.appendChild(span);
+            });
+
+            const chars = el.querySelectorAll('.char');
+            // animate using gsap.from on the created char spans (equivalent to split.chars)
+            const tween = gsap.from(chars, {
+                duration: 1,
+                y: 100, // animate from 100px below
+                autoAlpha: 0, // fade in from opacity: 0 and visibility: hidden
+                stagger: 0.02, // 0.05 seconds between each
+                ease: 'power3.out',
+            });
+
+            timelines.push(tween);
+        });
+
+        // crear un timeline maestro que encadene las líneas hero
+        const master = gsap.timeline();
+        timelines.forEach((t, i) => {
+            // overlap para que no sea tan rígido
+            master.add(t, i === 0 ? 0 : '-=0.45');
+        });
+
+        return () => {
+            // cleanup
+            try {
+                master.kill();
+                timelines.forEach((t) => t.kill());
+            } catch (e) {}
+        };
+    }, []);
+
+    
     return (
         <Box
             sx={{
@@ -56,17 +116,18 @@ export const Hero = () => {
                 }}
             >
                 <p>
-                    <Typography variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline' }}>
+                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline' }}>
                         Expertos
                     </Typography>
-                    <Typography variant="hero" sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1.5 }}
+                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1.5 }}
                     >
-                        en Certificación ITSE para empresas. Tu 
+                        en Certificación ITSE para empresas. Tu
                     </Typography>
-                    <Typography variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline', ml: 1.4 }}>
-                         aliado 
+                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline', ml: 1.4 }}>
+                        aliado
                     </Typography>
                     <Typography
+                        className="hero-split"
                         variant="hero"
                         sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1 }}
                     >
@@ -89,7 +150,7 @@ export const Hero = () => {
                         display: 'inline-block',
                     }}
                 >
-                    Garantizamos la seguridad y el cumplimiento legal que su negocio necesita para operar sin interrupciones. Consulta por nuestros paquetes corporativos SST + ITSE. 
+                    Garantizamos la seguridad y el cumplimiento legal que su negocio necesita para operar sin interrupciones. Consulta por nuestros paquetes corporativos SST + ITSE.
                 </Typography>
             </Box>
             {/* Imagen decorativa derecha */}
@@ -118,20 +179,20 @@ export const Hero = () => {
                     }}
                 >
                     <img
-                    src={Recurso}
-                    alt="Decoración derecha"
-                    style={{
-                        height: '100%',
-                        width: '100%',
-                        objectFit: 'fill',
-                        pointerEvents: 'none',
-                        userSelect: 'none',
-                    }}
-                />
-               
+                        src={Recurso}
+                        alt="Decoración derecha"
+                        style={{
+                            height: '100%',
+                            width: '100%',
+                            objectFit: 'fill',
+                            pointerEvents: 'none',
+                            userSelect: 'none',
+                        }}
+                    />
+
                 </Collapse>
 
-               
+
             </Box>
         </Box>
     );

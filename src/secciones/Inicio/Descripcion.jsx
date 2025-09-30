@@ -1,5 +1,4 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { useRef } from "react";
 import {
     Box,
     Typography,
@@ -8,9 +7,9 @@ import {
     CardContent,
     Grid,
 } from "@mui/material";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// carousel settings are handled by the reusable Carousel component
 import OrangeLine from "../../components/OrangeLine";
+import Carousel from "../../components/Carousel";
 
 import foto from '../../assets/Hero.png';
 
@@ -36,26 +35,9 @@ const items = [
 ];
 
 export const Descripcion = () => {
-    const settings = {
-        dots: true,
+    const sliderWrapperRef = useRef(null);
 
-        infinite: true,
-        speed: 600,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        arrows: false,
-        appendDots: dots => (
-            <div
-                style={{
-                    textAlign: "right",
-                }}
-            >
-                <ul style={{ margin: 0 }}> {dots} </ul>
-            </div>
-        ),
-    };
+    // carousel settings are provided by src/components/Carousel.jsx by default
 
     return (
         <Grid
@@ -81,16 +63,18 @@ export const Descripcion = () => {
 
             {/* Carrusel lado derecho */}
             <Grid size={6}>
-                <Box sx={{ 
-                    position: "relative", 
-                    width: "100%", 
-                    minHeight: { xs: '320px', md: '380px' }, 
-                    overflow: 'visible',
-                    '& .slick-slide': {
-                        overflow: 'visible'
-                    }
-                }}>
-                    <Slider {...settings}>
+                <Box
+                    ref={sliderWrapperRef}
+                    sx={{
+                        position: "relative",
+                        width: "100%",
+                        overflow: 'visible',
+                        '& .slick-slide': {
+                            overflow: 'visible'
+                        }
+                    }}
+                >
+                    <Carousel>
                         {items.map((item, index) => (
                             <Box
                                 key={index}
@@ -144,10 +128,27 @@ export const Descripcion = () => {
                                 </Card>
                             </Box>
                         ))}
-                    </Slider>
+                    </Carousel>
 
-                    {/* Línea Naranja como overlay del slider */}
-                    <OrangeLine strokeWidth={6} />
+                    {/* Overlay para la línea: absolute y zIndex alto */}
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: -45, // ajusta
+                            left: 170, // ajusta
+                            height: "100%",
+                            zIndex: 3,
+                            pointerEvents: "none",
+                        }}
+                    >
+                        {/* Slow the line draw by increasing scrollLength (px) and smoothing with scrub */}
+                        <OrangeLine
+                            strokeWidth={9}
+                            triggerRef={sliderWrapperRef}
+                            scrollLength={3000}   // más px → más lento
+                            scrub={1.5}           // suavizado más grande
+                        />
+                    </Box>
                 </Box>
             </Grid>
         </Grid>
