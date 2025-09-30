@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Collapse from '@mui/material/Collapse';
-import heroImage from '../../assets/hero.png';
+import heroImage from '../../assets/Hero.png';
 import Recurso from '../../assets/Recurso.png';
 import gsap from 'gsap';
 
