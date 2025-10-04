@@ -16,7 +16,7 @@ const theme = createTheme({
       main: "#F28737", // naranja primario
     },
     common: {
-      blan: "#FFFFFF",
+      white: "#FFFFFF",
     },
   },
   typography: {

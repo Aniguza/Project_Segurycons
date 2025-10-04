@@ -9,70 +9,7 @@ import gsap from 'gsap';
 export const Hero = () => {
     const [expanded, setExpanded] = useState(false);
 
-    useEffect(() => {
-        // small delay so the animation is visible after mount
-        const t = setTimeout(() => setExpanded(true), 120);
-        return () => clearTimeout(t);
-    }, []);
-
-    useEffect(() => {
-        // Animación de texto con GSAP
-        // split chars without paid SplitText: wrap cada caracter en un <span> y animar
-        const elements = document.querySelectorAll('.hero-split');
-        const timelines = [];
-
-        elements.forEach((el, idx) => {
-            const text = el.textContent || '';
-            // keep accessibility: preserve original text for screen readers
-            el.setAttribute('aria-label', text);
-            el.setAttribute('role', 'text');
-            // clear existing visual content
-            el.innerHTML = '';
-            // create span per char
-            Array.from(text).forEach((ch) => {
-                const span = document.createElement('span');
-                span.className = 'char';
-                // inline styles to allow transforms and preserve spacing
-                span.style.display = 'inline-block';
-                span.style.whiteSpace = 'pre';
-                if (ch === ' ') {
-                    span.innerHTML = '&nbsp;';
-                    // optional small spacing class
-                } else {
-                    span.textContent = ch;
-                }
-                el.appendChild(span);
-            });
-
-            const chars = el.querySelectorAll('.char');
-            // animate using gsap.from on the created char spans (equivalent to split.chars)
-            const tween = gsap.from(chars, {
-                duration: 1,
-                y: 100, // animate from 100px below
-                autoAlpha: 0, // fade in from opacity: 0 and visibility: hidden
-                stagger: 0.02, // 0.05 seconds between each
-                ease: 'power3.out',
-            });
-
-            timelines.push(tween);
-        });
-
-        // crear un timeline maestro que encadene las líneas hero
-        const master = gsap.timeline();
-        timelines.forEach((t, i) => {
-            // overlap para que no sea tan rígido
-            master.add(t, i === 0 ? 0 : '-=0.45');
-        });
-
-        return () => {
-            // cleanup
-            try {
-                master.kill();
-                timelines.forEach((t) => t.kill());
-            } catch (e) {}
-        };
-    }, []);
-
+    
     
     return (
         <Box
@@ -167,17 +104,7 @@ export const Hero = () => {
                     justifyContent: 'flex-end',
                 }}
             >
-                <Collapse
-                    in={expanded}
-                    timeout={3000}
-                    orientation="vertical"
-                    sx={{
-                        transformOrigin: 'top center',
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        justifyContent: 'flex-end',
-                    }}
-                >
+               
                     <img
                         src={Recurso}
                         alt="Decoración derecha"
@@ -190,7 +117,7 @@ export const Hero = () => {
                         }}
                     />
 
-                </Collapse>
+               
 
 
             </Box>

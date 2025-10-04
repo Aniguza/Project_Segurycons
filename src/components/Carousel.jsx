@@ -31,7 +31,19 @@ const Carousel = ({ settings = {}, sx = {}, children }) => {
   const merged = { ...defaultSettings, ...settings };
 
   return (
-    <Box sx={{ width: '100%', overflow: 'visible', '& .slick-slide': { overflow: 'visible' }, ...sx }}>
+    <Box 
+      sx={{ 
+        width: '100%', 
+        overflow: 'hidden', // CAMBIO CRÍTICO: de 'visible' a 'hidden'
+        '& .slick-list': {
+          overflow: 'hidden', // Asegura que slick-list también tenga overflow hidden
+        },
+        '& .slick-slide': { 
+          // Removido overflow: 'visible' - esto causaba el problema
+        }, 
+        ...sx 
+      }}
+    >
       <Slider {...merged}>{children}</Slider>
     </Box>
   );

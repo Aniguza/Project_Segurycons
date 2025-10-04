@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
     Box,
     Typography,
@@ -7,11 +7,11 @@ import {
     CardContent,
     Grid,
 } from "@mui/material";
-// carousel settings are handled by the reusable Carousel component
 import OrangeLine from "../../components/OrangeLine";
-import Carousel from "../../components/Carousel";
+import MUICarousel from "../../components/MUICarousel";
 
 import foto from '../../assets/Hero.png';
+import '../../App.css'; // Importa el archivo CSS
 
 const items = [
     {
@@ -34,21 +34,93 @@ const items = [
     },
 ];
 
+// Componente para cada slide del carrusel - AQUÍ MANEJAS TODO EL DISEÑO
+const CarouselSlide = ({ item }) => {
+    return (
+        <Box sx={{ 
+           
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            p: 2
+        }}>
+            <Box sx={{
+                backgroundColor: 'primary.main',
+                padding: 3,
+                height: {xs: '100%'},
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: 2
+            }}>
+                <CardMedia
+                    component="img"
+                    image={item.image}
+                    alt={item.title}
+                    sx={{ 
+                        width: {xs: '100%', md: '40%'},
+                        
+                        objectFit: 'cover',
+                        flexShrink: 0
+                    }}
+                />
+                <Box sx={{ 
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    textAlign: 'left',
+                    height: '100%',
+                    pl: { xs: 1, md: 6 },
+                    
+                }}>
+                    <Typography 
+                        variant="body2"
+                         
+                        sx={{ 
+                            fontWeight: 'bold',
+                            color: 'white',
+                            mb: 1,
+                            fontSize: { xs: '1.2rem', md: '1.5rem' },
+                            textAlign: 'center',
+                        }}
+                    >
+                        {item.title}
+                    </Typography>
+                    <Typography 
+                        variant="body2" 
+                        sx={{ 
+                            color: 'white',
+                            lineHeight: 1.4,
+                            fontSize: { xs: '0.8rem', md: '0.9rem' },
+                            mb: 2,
+                            textAlign: { xs: 'center', md: 'left' },
+                        }}
+                    >
+                        {item.description}
+                    </Typography>
+                </Box>
+            </Box>
+        </Box>
+    );
+};
+
 export const Descripcion = () => {
     const sliderWrapperRef = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-    // carousel settings are provided by src/components/Carousel.jsx by default
+    // Función para cambiar slide desde los puntos de navegación
+    const handleSlideChange = (index) => {
+        setCurrentSlide(index);
+    };
 
     return (
-        <Grid
-            container
-            spacing={2}
-            alignItems="center"
-            sx={{ px: { xs: 2, md: 8 }, py: 10 }}
-        >
-            {/* Texto lado izquierdo */}
-            <Grid size={6} >
-                <Box sx={{ width: "80%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
+        <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', }}>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4,  display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
                     <Typography
                         variant="h6"
                         sx={{ fontWeight: "bold", color: "primary.main", mb: 2 }}
@@ -59,95 +131,54 @@ export const Descripcion = () => {
                         En Segurycons somos especialistas en seguridad en edificaciones. Te acompañamos en la obtención de Licencias de Funcionamiento y Certificados ITSE, SST, y levantamientos de observaciones. Con el respaldo de un equipo acreditado en normativas nacionales e internacionales.
                     </Typography>
                 </Box>
-            </Grid>
 
-            {/* Carrusel lado derecho */}
-            <Grid size={6}>
-                <Box
-                    ref={sliderWrapperRef}
-                    sx={{
-                        position: "relative",
-                        width: "100%",
-                        overflow: 'visible',
-                        '& .slick-slide': {
-                            overflow: 'visible'
-                        }
-                    }}
-                >
-                    <Carousel>
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }} >
+                <Box sx={{ width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px:{ xs: 4, md: 10 }, pb:4 }}>
+                    <MUICarousel
+                        settings={{
+                            autoplay: true,
+                            autoplaySpeed: 3000,
+                            infinite: true
+                        }}
+                        sx={{ 
+                            height: { xs: '350px', md: '85%'},
+                            
+                        }}
+                        controlledSlide={currentSlide}
+                        onSlideChange={setCurrentSlide}
+                    >
                         {items.map((item, index) => (
+                            <CarouselSlide key={index} item={item} />
+                        ))}
+                    </MUICarousel>
+                    
+                    {/* Puntos de navegación fuera del carrusel */}
+                    <Box sx={{ 
+                        display: 'flex', 
+                        justifyContent: 'flex-end',
+                        gap: 1,
+                        mt: 2,
+                        pr: 2
+                    }}>
+                        {items.map((_, index) => (
                             <Box
                                 key={index}
+                                onClick={() => handleSlideChange(index)}
                                 sx={{
-                                    position: "relative",
-                                    width: "100%",
-                                    height: "100%",
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: '50%',
+                                    backgroundColor: currentSlide === index ? 'primary.main' : '#cccccc',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        backgroundColor: currentSlide === index ? 'primary.main' : '#999999',
+                                        transform: 'scale(1.1)'
+                                    }
                                 }}
-                            >
-                                <Card
-                                    sx={{
-                                        display: "flex",
-                                        flexDirection: { xs: "column", md: "row" },
-                                        bgcolor: "primary.main",
-                                        color: "common.blan",
-                                        borderRadius: 0,
-                                        overflow: "hidden",
-                                        width: "100%",
-                                        minHeight: "250px",
-                                        position: "relative",
-                                        zIndex: 0, // OrangeLine (higher zIndex) will overlay
-                                    }}
-                                >
-                                    {/* Imagen */}
-                                    <CardMedia
-                                        component="img"
-                                        sx={{
-                                            width: { xs: "100%", md: "50%" },
-                                            objectFit: "cover",
-                                            padding: 5,
-                                        }}
-                                        image={item.image}
-                                        alt={item.title}
-                                    />
-
-                                    {/* Texto */}
-                                    <CardContent
-                                        sx={{
-                                            width: { xs: "100%", md: "50%" },
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            justifyContent: "center",
-                                            p: 4,
-                                        }}
-                                    >
-                                        <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2, color: "#fff" }}>
-                                            {item.title}
-                                        </Typography>
-                                        <Typography variant="body1">{item.description}</Typography>
-                                    </CardContent>
-                                </Card>
-                            </Box>
+                            />
                         ))}
-                    </Carousel>
-
-                    {/* Overlay para la línea: absolute y zIndex alto */}
-                    <Box
-                        sx={{
-                            position: "absolute",
-                            top: -45, // ajusta
-                            left: 170, // ajusta
-                            height: "100%",
-                            zIndex: 3,
-                            pointerEvents: "none",
-                        }}
-                    >
-                        {/* Slow the line draw by increasing scrollLength (px) and smoothing with scrub */}
-                        <OrangeLine
-                            strokeWidth={9}
-                            triggerRef={sliderWrapperRef}
-                            scrollLength={3000}   // más px → más lento
-                            scrub={1.5}           // suavizado más grande
-                        />
                     </Box>
                 </Box>
             </Grid>

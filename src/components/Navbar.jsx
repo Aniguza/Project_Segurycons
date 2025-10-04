@@ -80,9 +80,12 @@ export const Navbar = () => {
     <AppBar position="fixed" color="inherit" elevation={0}>
       <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: 3 }}>
         {/* Logo */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <img src={logo} alt="Logo" style={{ height: "65px", marginLeft: "50px" }} />
-        </Box>
+        <Box
+          sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 140, sm: 200, md: 220 }, marginLeft: { xs: 2, sm: 7, md: 6 } }}
+          component="img"
+          src={logo}
+          alt="Logo"
+        />
 
         {/* Links en pantallas grandes */}
         {isDesktop && (
@@ -139,10 +142,11 @@ export const Navbar = () => {
         {!isDesktop && (
           <>
             <IconButton
-              sx={{ color: "primary.main" }}
+              sx={{ color: "primary.main"}}
               onClick={() => setOpenDrawer(true)}
+              
             >
-              <MenuIcon />
+              <MenuIcon sx={{ width: { xs: 30, sm: 40 }, height: { xs: 30, sm: 40 } }} />
             </IconButton>
 
             {/* Drawer lateral */}
