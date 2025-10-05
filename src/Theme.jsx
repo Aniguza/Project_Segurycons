@@ -24,8 +24,8 @@ const theme = createTheme({
     h1: { fontSize: "2.5rem", fontWeight: 700 },
     h2: { fontSize: "2rem", fontWeight: 700 },
     h3: { fontSize: "1.5rem", fontWeight: 700 },
-    hero: { fontSize: "3rem", fontWeight: 700, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', },
-    subtitle1: { fontSize: "1.2rem", fontWeight: 400 },
+    hero: { fontWeight: 700, textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', },
+    subtitle1: { fontWeight: 400 },
     body1: { fontSize: "1rem", fontWeight: 400 },
     menu: { 
       display: 'block',

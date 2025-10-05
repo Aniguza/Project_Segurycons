@@ -163,9 +163,10 @@ export const ServiciosCarousel = () => {
       component="section"
       sx={{ 
         width: '100%',
-        height: {xs:'560px', lg: '600px', md: '550px'},
+        height: {xs:'560px',  md: '550px', lg: '500px'},
         py: 4,
         px: { xs: 3, sm: 10, md: 6 },
+        bgcolor: 'common.white',
       }}
     >
       <Typography 
@@ -184,7 +185,7 @@ export const ServiciosCarousel = () => {
         sx={{ 
           width: '95%',
           maxWidth: '1200px',
-          height: { xs: '400px', md: '470px' },
+          height: { xs: '400px', md: 'auto' },
           mx: 'auto',
           position: 'relative',
           px: { xs: 0, md: 5 },

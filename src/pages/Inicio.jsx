@@ -7,7 +7,7 @@ import { Clientes } from '../secciones/Inicio/Clientes';
 
 export const Inicio = () => {
   return (
-    <Box sx={{ mt: { xs: '70px', md: '90px' } }}>
+    <Box sx={{ mt: { xs: '55px', md: '90px' } }}>
       <Hero />
       <ServiciosCarousel />
       <Descripcion />

@@ -78,10 +78,10 @@ export const Navbar = () => {
 
   return (
     <AppBar position="fixed" color="inherit" elevation={0}>
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: 3 }}>
+      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: { xs: 1, md: 3 } }}>
         {/* Logo */}
         <Box
-          sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 140, sm: 200, md: 220 }, marginLeft: { xs: 2, sm: 7, md: 6 } }}
+          sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 120, sm: 140, md: 220 }, marginLeft: { xs: 2, sm: 5, md: 6 } }}
           component="img"
           src={logo}
           alt="Logo"
@@ -146,7 +146,7 @@ export const Navbar = () => {
               onClick={() => setOpenDrawer(true)}
               
             >
-              <MenuIcon sx={{ width: { xs: 30, sm: 40 }, height: { xs: 30, sm: 40 } }} />
+              <MenuIcon sx={{ width: { xs: 20, sm: 25, md: 40 }, height: { xs: 20, sm: 25, md: 40 } }} />
             </IconButton>
 
             {/* Drawer lateral */}

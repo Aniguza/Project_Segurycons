@@ -118,7 +118,7 @@ export const Descripcion = () => {
     };
 
     return (
-        <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', }}>
+        <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', height: '450px' }}>
             <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4,  display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
                     <Typography
@@ -134,7 +134,7 @@ export const Descripcion = () => {
 
             </Grid>
             <Grid size={{ xs: 12, sm: 6 }} >
-                <Box sx={{ width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px:{ xs: 4, md: 10 }, pb:4 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px:{ xs: 4, md: 9 }, pb:4 }}>
                     <MUICarousel
                         settings={{
                             autoplay: true,
@@ -142,7 +142,7 @@ export const Descripcion = () => {
                             infinite: true
                         }}
                         sx={{ 
-                            height: { xs: '350px', md: '85%'},
+                            height: { xs: '350px', md: 'auto'},
                             
                         }}
                         controlledSlide={currentSlide}
@@ -158,7 +158,6 @@ export const Descripcion = () => {
                         display: 'flex', 
                         justifyContent: 'flex-end',
                         gap: 1,
-                        mt: 2,
                         pr: 2
                     }}>
                         {items.map((_, index) => (

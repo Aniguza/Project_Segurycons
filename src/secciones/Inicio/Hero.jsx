@@ -14,7 +14,7 @@ export const Hero = () => {
     return (
         <Box
             sx={{
-                height: '87vh',
+                height: { xs: 250, sm: 350, md: '90vh' },
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',
@@ -41,11 +41,11 @@ export const Hero = () => {
             <Box
                 sx={{
                     position: 'relative',
-                    maxWidth: 900,
+                    maxWidth: 1100,
                     zIndex: 2,
                     flex: 1,
-                    pl: { xs: 2, md: 10 },
-                    pr: { xs: 2, md: 0 },
+                    pl: { xs: 2, sm: 7, md: 10 },
+                    pr: { xs: 12, sm: 24, md: 22, lg: 0 },
                     py: { xs: 8, md: 0 },
                     display: 'flex',
                     flexDirection: 'column',
@@ -53,20 +53,20 @@ export const Hero = () => {
                 }}
             >
                 <p>
-                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline' }}>
+                    <Typography  variant="hero" sx={{fontSize: { sm: '1.7rem', md: '2.5rem', lg: '3.5rem' }, fontWeight: 700, color: 'orange.main', display: 'inline' }}>
                         Expertos
                     </Typography>
-                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1.5 }}
+                    <Typography  variant="hero" sx={{fontSize: { sm: '1.7rem', md: '2.5rem', lg: '3.5rem' }, fontWeight: 700, color: '#22346C', display: 'inline', ml: 1.5 }}
                     >
                         en Certificación ITSE para empresas. Tu
                     </Typography>
-                    <Typography className="hero-split" variant="hero" sx={{ fontWeight: 700, color: 'orange.main', display: 'inline', ml: 1.4 }}>
+                    <Typography  variant="hero" sx={{fontSize: { sm: '1.7rem', md: '2.5rem',lg: '3.5rem' }, fontWeight: 700, color: 'orange.main', display: 'inline', ml: 1.4 }}>
                         aliado
                     </Typography>
                     <Typography
-                        className="hero-split"
+                      
                         variant="hero"
-                        sx={{ fontWeight: 700, color: '#22346C', display: 'inline', ml: 1 }}
+                        sx={{ fontSize: { sm: '1.7rem', md: '2.5rem', lg: '3.5rem' }, fontWeight: 700, color: '#22346C', display: 'inline', ml: 1 }}
                     >
                         en el Norte
                     </Typography>
@@ -79,12 +79,11 @@ export const Hero = () => {
                     variant="subtitle1"
                     sx={{
                         color: '#22346C',
-                        mt: 7,
-                        maxWidth: 900,
+                        mt: {   xs: 2, md: 7 },
+                        maxWidth:1900,
                         fontWeight: 700,
-                        borderRadius: 2,
-                        fontSize: { xs: 14, md: 18 },
-                        display: 'inline-block',
+                        fontSize: { xs: 10, sm: 12, md: 18, lg: 21 },
+                        
                     }}
                 >
                     Garantizamos la seguridad y el cumplimiento legal que su negocio necesita para operar sin interrupciones. Consulta por nuestros paquetes corporativos SST + ITSE.
