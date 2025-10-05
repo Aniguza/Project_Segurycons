@@ -37,8 +37,8 @@ const items = [
 // Componente para cada slide del carrusel - AQUÍ MANEJAS TODO EL DISEÑO
 const CarouselSlide = ({ item }) => {
     return (
-        <Box sx={{ 
-           
+        <Box sx={{
+
             width: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -48,7 +48,7 @@ const CarouselSlide = ({ item }) => {
             <Box sx={{
                 backgroundColor: 'primary.main',
                 padding: 3,
-                height: {xs: '100%'},
+                height: { xs: '100%' },
                 width: '100%',
                 display: 'flex',
                 alignItems: 'center',
@@ -59,14 +59,14 @@ const CarouselSlide = ({ item }) => {
                     component="img"
                     image={item.image}
                     alt={item.title}
-                    sx={{ 
-                        width: {xs: '100%', md: '40%'},
-                        
+                    sx={{
+                        width: { xs: '100%', md: '40%' },
+
                         objectFit: 'cover',
                         flexShrink: 0
                     }}
                 />
-                <Box sx={{ 
+                <Box sx={{
                     flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
@@ -75,12 +75,12 @@ const CarouselSlide = ({ item }) => {
                     textAlign: 'left',
                     height: '100%',
                     pl: { xs: 1, md: 6 },
-                    
+
                 }}>
-                    <Typography 
+                    <Typography
                         variant="body2"
-                         
-                        sx={{ 
+
+                        sx={{
                             fontWeight: 'bold',
                             color: 'white',
                             mb: 1,
@@ -90,9 +90,9 @@ const CarouselSlide = ({ item }) => {
                     >
                         {item.title}
                     </Typography>
-                    <Typography 
-                        variant="body2" 
-                        sx={{ 
+                    <Typography
+                        variant="body2"
+                        sx={{
                             color: 'white',
                             lineHeight: 1.4,
                             fontSize: { xs: '0.8rem', md: '0.9rem' },
@@ -118,69 +118,81 @@ export const Descripcion = () => {
     };
 
     return (
-        <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', height: '450px' }}>
-            <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4,  display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
-                    <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", color: "primary.main", mb: 2 }}
-                    >
-                        POSICIONAMIENTO
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5 }}>
-                        En Segurycons somos especialistas en seguridad en edificaciones. Te acompañamos en la obtención de Licencias de Funcionamiento y Certificados ITSE, SST, y levantamientos de observaciones. Con el respaldo de un equipo acreditado en normativas nacionales e internacionales.
-                    </Typography>
-                </Box>
-
-            </Grid>
-            <Grid size={{ xs: 12, sm: 6 }} >
-                <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px:{ xs: 4, md: 9 }, pb:4 }}>
-                    <MUICarousel
-                        settings={{
-                            autoplay: true,
-                            autoplaySpeed: 3000,
-                            infinite: true
-                        }}
-                        sx={{ 
-                            height: { xs: '350px', md: 'auto'},
-                            
-                        }}
-                        controlledSlide={currentSlide}
-                        onSlideChange={setCurrentSlide}
-                    >
-                        {items.map((item, index) => (
-                            <CarouselSlide key={index} item={item} />
-                        ))}
-                    </MUICarousel>
-                    
-                    {/* Puntos de navegación fuera del carrusel */}
-                    <Box sx={{ 
-                        display: 'flex', 
-                        justifyContent: 'flex-end',
-                        gap: 1,
-                        pr: 2
-                    }}>
-                        {items.map((_, index) => (
-                            <Box
-                                key={index}
-                                onClick={() => handleSlideChange(index)}
-                                sx={{
-                                    width: 10,
-                                    height: 10,
-                                    borderRadius: '50%',
-                                    backgroundColor: currentSlide === index ? 'primary.main' : '#cccccc',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease',
-                                    '&:hover': {
-                                        backgroundColor: currentSlide === index ? 'primary.main' : '#999999',
-                                        transform: 'scale(1.1)'
-                                    }
-                                }}
-                            />
-                        ))}
+        <Box 
+            component="section" 
+            sx={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                mx: 'auto', 
+                width: '100%',
+                bgcolor: 'common.white',
+            }}
+        >
+            <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', maxWidth: '1200px', height: { xs: 'auto', sm: '450px' } }}>
+                <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
+                        <Typography
+                            variant="h6"
+                            sx={{ fontWeight: "bold", color: "primary.main", mb: 2 }}
+                        >
+                            POSICIONAMIENTO
+                        </Typography>
+                        <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5 }}>
+                            En Segurycons somos especialistas en seguridad en edificaciones. Te acompañamos en la obtención de Licencias de Funcionamiento y Certificados ITSE, SST, y levantamientos de observaciones. Con el respaldo de un equipo acreditado en normativas nacionales e internacionales.
+                        </Typography>
                     </Box>
-                </Box>
+
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 9 }, pb: 4 }}>
+                        <MUICarousel
+                            settings={{
+                                autoplay: true,
+                                autoplaySpeed: 3000,
+                                infinite: true
+                            }}
+                            sx={{
+                                height: { xs: '350px', md: 'auto' },
+
+                            }}
+                            controlledSlide={currentSlide}
+                            onSlideChange={setCurrentSlide}
+                        >
+                            {items.map((item, index) => (
+                                <CarouselSlide key={index} item={item} />
+                            ))}
+                        </MUICarousel>
+
+                        {/* Puntos de navegación fuera del carrusel */}
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            gap: 1,
+                            pr: 2
+                        }}>
+                            {items.map((_, index) => (
+                                <Box
+                                    key={index}
+                                    onClick={() => handleSlideChange(index)}
+                                    sx={{
+                                        width: 10,
+                                        height: 10,
+                                        borderRadius: '50%',
+                                        backgroundColor: currentSlide === index ? 'primary.main' : '#cccccc',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.3s ease',
+                                        '&:hover': {
+                                            backgroundColor: currentSlide === index ? 'primary.main' : '#999999',
+                                            transform: 'scale(1.1)'
+                                        }
+                                    }}
+                                />
+                            ))}
+                        </Box>
+                    </Box>
+                </Grid>
             </Grid>
-        </Grid>
+        </Box>
     );
 }
