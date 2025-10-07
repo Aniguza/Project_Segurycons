@@ -7,7 +7,7 @@ import './App.css';
 
 // Páginas
 import { Inicio } from "./pages/Inicio";
-
+import { Nosotros } from "./pages/Nosotros";
 
 export default function App() {
   return (
@@ -15,6 +15,7 @@ export default function App() {
       <Navbar />
       <Routes >
         <Route path="/" element={<Inicio />} />
+        <Route path="/nosotros" element={<Nosotros />} />
       </Routes>
       <Footer />
     </Router>

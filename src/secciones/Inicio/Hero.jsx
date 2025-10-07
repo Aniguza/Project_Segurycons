@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Collapse from '@mui/material/Collapse';
 import heroImage from '../../assets/Hero.png';
 import Recurso from '../../assets/Recurso.png';
-import gsap from 'gsap';
 
 export const Hero = () => {
-    const [expanded, setExpanded] = useState(false);
-
-    
-    
+ 
     return (
         <Box
             sx={{
@@ -72,9 +67,6 @@ export const Hero = () => {
                     </Typography>
                 </p>
 
-
-
-
                 <Typography
                     variant="subtitle1"
                     sx={{
@@ -115,10 +107,6 @@ export const Hero = () => {
                             userSelect: 'none',
                         }}
                     />
-
-               
-
-
             </Box>
         </Box>
     );

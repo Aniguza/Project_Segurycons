@@ -172,6 +172,7 @@ export const ServiciosCarousel = () => {
       <Typography 
         variant="h5" 
         sx={{ 
+          fontSize: { xs: "1.3rem", md: "1.6rem" },
           fontWeight: 700, 
           color: 'primary.main', 
           mb: 4, 

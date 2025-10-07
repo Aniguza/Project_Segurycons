@@ -74,7 +74,7 @@ const CarouselSlide = ({ item }) => {
                     alignItems: 'flex-start',
                     textAlign: 'left',
                     height: '100%',
-                    pl: { xs: 1, md: 6 },
+                    pl: { xs: 1, md: 3 },
 
                 }}>
                     <Typography
@@ -131,7 +131,7 @@ export const Descripcion = () => {
         >
             <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', maxWidth: '1200px', height: { xs: 'auto', sm: '450px' } }}>
                 <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                    <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 9 } }}>
+                    <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 0 } }}>
                         <Typography
                             variant="h6"
                             sx={{ fontWeight: "bold", color: "primary.main", mb: 2 }}
@@ -145,7 +145,7 @@ export const Descripcion = () => {
 
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }} >
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 9 }, pb: 4 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 5 }, pb: 4 }}>
                         <MUICarousel
                             settings={{
                                 autoplay: true,

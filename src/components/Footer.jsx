@@ -19,21 +19,22 @@ export const Footer = () => {
                 sx={{
                     bgcolor: "#2f4169", // azul de tu footer
                     color: "white",
-                    mt: 4,
                     display: "flex",
                     justifyContent: "center",
+                    width: "100%",
                 }}
             >
                 <Grid
                     container
-                    width={{xs: "95%", md: "90%"} }
-                    spacing={{ xs: 10, md: 30 }}
-                    sx={{ px: { xs: 2, md: 8 }, py: 6 }}
+                    width="100%"
+                    maxWidth='1200px'
+                    spacing={3}
+                    sx={{ px: 4, py: 6 }}
                     alignItems="center"
                     justifyContent="center"
                 >
                     {/* Logo */}
-                    <Grid item sx={{display: { xs: "none", md: "block" }, }} md={4} textAlign={{ xs: "center", md: "left" }}>
+                    <Grid item size={{ xs: 12, sm: 3 }} sx={{display: { xs: "none", md: "block" }, }}  textAlign="center">
                         <img
                             src={logo}
                             alt="Segurycons Logo"
@@ -42,34 +43,30 @@ export const Footer = () => {
                     </Grid>
 
                     {/* Contacto */}
-                    <Grid item xs={12} md={4}>
+                    <Grid item size={{ xs: 12, sm: 5 }} sx={{pl: { xs: 0, sm: 4 }, display:'flex', flexDirection:'column', gap: 0.5}} >
                         <Typography variant="h6" gutterBottom>
                             Contacto
                         </Typography>
                         <Typography variant="body2">
-                            <RoomIcon fontSize="small" sx={{ mr: 1 }} />
-                            <b> Dirección:</b>  A.h once de abril MZ C4 lt 09
+                            <b>📍 Dirección:</b>  A.h once de abril MZ C4 lt 09
                         </Typography>
                         <Typography variant="body2">
-                            <PhoneIcon fontSize="small" sx={{ mr: 1 }} />
-                            <b> Teléfono:</b>  905 767 434 – 977 652 430
+                            <b>📞 Teléfono:</b>  905 767 434 – 977 652 430
                         </Typography>
                         <Typography variant="body2">
-                            <EmailIcon fontSize="small" sx={{ mr: 1 }} />
-                            <b>Correo:</b> operaciones@segurycons.com
+                            <b>📧 Correo:</b> operaciones@segurycons.com
                         </Typography>
                         <Typography variant="body2">
-                            <WhatsAppIcon fontSize="small" sx={{ mr: 1 }} />
-                            <b> WhatsApp:</b>  +51 987 654 321
+                            <b>📱 WhatsApp:</b>  +51 987 654 321
                         </Typography>
                     </Grid>
 
                     {/* Redes sociales */}
-                    <Grid item xs={12} md={4} textAlign={{ xs: "center", md: "right" }} >
+                    <Grid item size={{ xs: 12, sm: 4 }} textAlign="left" >
                         <Typography variant="h6" gutterBottom mb={2}>
                             Nuestras redes sociales
                         </Typography>
-                        <Box>
+                        <Box sx={{ display: "flex", gap: 2, justifyContent: { xs: "flex-start", md: "flex-start" } }}>
                             <IconButton
                                 component="a"
                                 href="#"
@@ -77,7 +74,7 @@ export const Footer = () => {
                                 sx={{
                                     border: "4px solid #f47b20",
                                     color: "white",
-                                    mx: 2,
+                                   
                                 }}
                             >
                                 <FacebookIcon fontSize="large"/>
@@ -89,7 +86,7 @@ export const Footer = () => {
                                 sx={{
                                     border: "4px solid #f47b20",
                                     color: "white",
-                                    mx: 2,
+                                    
                                 }}
                             >
                                 <InstagramIcon fontSize="large"/>
@@ -101,11 +98,11 @@ export const Footer = () => {
                                 sx={{
                                     border: "4px solid #f47b20",
                                     color: "white",
-                                    mx: 2,
+                                    
                                     
                                 }}
                             >
-                                <LinkedInIcon fontSize="large" />
+                                <LinkedInIcon fontSize="large"/>
                             </IconButton>
                         </Box>
                     </Grid>
