@@ -74,7 +74,7 @@ export const Normativas = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 maxWidth: "1500px",
-                backgroundColor: 'background.default',
+                backgroundColor: 'common.white',
                 width: "100%",
             }}
         >
