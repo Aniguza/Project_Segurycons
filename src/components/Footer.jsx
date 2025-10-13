@@ -1,19 +1,18 @@
 // src/components/Footer.jsx
 import React from "react";
-import { Box, Grid, Typography, IconButton, Link, getAppBarUtilityClass } from "@mui/material";
-import RoomIcon from "@mui/icons-material/Room";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Box, Grid, Typography, Button, Link, getAppBarUtilityClass } from "@mui/material";
+import { FiFacebook } from "react-icons/fi";
+import { FiInstagram } from "react-icons/fi";
+import { FiLinkedin } from "react-icons/fi";
+
 
 import logo from "../assets/Logo-bn.png"; // Asegúrate de tener un logo en esta ruta
+import { BorderAll } from "@mui/icons-material";
 
 export const Footer = () => {
     return (
         <>
+
             <Box
                 component="footer"
                 sx={{
@@ -28,13 +27,14 @@ export const Footer = () => {
                     container
                     width="100%"
                     maxWidth='1200px'
-                    spacing={3}
+                    rowSpacing={4}
+                    columnSpacing={{ xs: 1, sm: 7, md: 10 }}
                     sx={{ px: 4, py: 6 }}
                     alignItems="center"
                     justifyContent="center"
                 >
                     {/* Logo */}
-                    <Grid item size={{ xs: 12, sm: 3 }} sx={{display: { xs: "none", md: "block" }, }}  textAlign="center">
+                    <Grid item size={{ xs: 12, sm: 3 }} sx={{ display: { xs: "none", md: "block" }, }} textAlign="center">
                         <img
                             src={logo}
                             alt="Segurycons Logo"
@@ -43,7 +43,7 @@ export const Footer = () => {
                     </Grid>
 
                     {/* Contacto */}
-                    <Grid item size={{ xs: 12, sm: 5 }} sx={{pl: { xs: 0, sm: 4 }, display:'flex', flexDirection:'column', gap: 0.5}} >
+                    <Grid item size={{ xs: 12, sm: 5 }} sx={{ pl: { xs: 0 }, display: 'flex', flexDirection: 'column', gap: 0.5, width: 'auto !important' }} >
                         <Typography variant="h6" gutterBottom>
                             Contacto
                         </Typography>
@@ -66,44 +66,51 @@ export const Footer = () => {
                         <Typography variant="h6" gutterBottom mb={2}>
                             Nuestras redes sociales
                         </Typography>
-                        <Box sx={{ display: "flex", gap: 2, justifyContent: { xs: "flex-start", md: "flex-start" } }}>
-                            <IconButton
-                                component="a"
-                                href="#"
-                                target="_blank"
-                                sx={{
-                                    border: "4px solid #f47b20",
-                                    color: "white",
-                                   
-                                }}
-                            >
-                                <FacebookIcon fontSize="large"/>
-                            </IconButton>
-                            <IconButton
-                                component="a"
-                                href="https://www.instagram.com/segurycons.itse?igsh=eXdsbDNvdnNqOGRj"
-                                target="_blank"
-                                sx={{
-                                    border: "4px solid #f47b20",
-                                    color: "white",
-                                    
-                                }}
-                            >
-                                <InstagramIcon fontSize="large"/>
-                            </IconButton>
-                            <IconButton
-                                component="a"
-                                href=""
-                                target="_blank"
-                                sx={{
-                                    border: "4px solid #f47b20",
-                                    color: "white",
-                                    
-                                    
-                                }}
-                            >
-                                <LinkedInIcon fontSize="large"/>
-                            </IconButton>
+                        <Box sx={{ 
+                            display: "flex", 
+                            gap: 2, 
+                            justifyContent: { xs: "flex-start", md: "flex-start" },
+                            '& svg': {
+                                color: "#fff",
+                                width: { xs: "20px", sm: "25px", md: "30px" },
+                                height: { xs: "20px", sm: "25px", md: "30px" },
+                                transition: "color 0.3s",
+                            },
+                            '& svg:hover': {
+                                color: "#3b5998",
+                            },
+                            '& a': {
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: "auto",
+                                height: "auto",
+                                border: "4px solid #F28737",
+                                borderRadius: "50%",
+                                padding: "10px",
+                            }
+                        }}>
+                            <Link 
+                            href="https://www.facebook.com/segurycons" 
+                            target="_blank" 
+                            rel="noopener" 
+                            aria-label="Facebook">
+                                <FiFacebook />
+                            </Link>
+                            <Link 
+                            href="https://www.instagram.com/segurycons.itse?igsh=eXdsbDNvdnNqOGRj" 
+                            target="_blank" 
+                            rel="noopener" 
+                            aria-label="Instagram">
+                                <FiInstagram />
+                            </Link>
+                            <Link 
+                            href="https://www.linkedin.com/company/segurycons/" 
+                            target="_blank" 
+                            rel="noopener" 
+                            aria-label="LinkedIn">
+                                <FiLinkedin />
+                            </Link>
                         </Box>
                     </Grid>
                 </Grid>
@@ -113,12 +120,12 @@ export const Footer = () => {
             {/* Copyright */}
             <Box
                 sx={{
-                    bgcolor: "orange.main", 
+                    bgcolor: "orange.main",
                     textAlign: "center",
                     py: 1,
                 }}
             >
-                <Typography variant="body2" sx={{ color: "primary.main", fontWeight: 700, fontSize:{xs:"12px"} }}>
+                <Typography variant="body2" sx={{ color: "primary.main", fontWeight: 700, fontSize: { xs: "12px" } }}>
                     © 2025 SEGURYCONS. Todos los derechos reservados.
                 </Typography>
             </Box>

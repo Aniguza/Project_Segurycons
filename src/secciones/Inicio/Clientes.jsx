@@ -74,7 +74,7 @@ export const Clientes = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                maxWidth: "1200px",
+                maxWidth: "1500px",
                 backgroundColor: 'background.default',
                 width: "100%",
                 
