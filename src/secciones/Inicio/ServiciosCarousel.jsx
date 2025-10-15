@@ -13,7 +13,7 @@ const ServiceSlide = ({ item }) => {
       display: 'flex',
       alignItems: 'stretch'
     }}>
-      <Box 
+      <Box
         sx={{
           p: 2.5,
           bgcolor: 'background.paper',

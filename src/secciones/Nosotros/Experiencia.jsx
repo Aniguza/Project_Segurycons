@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import nosotrosImg from "../../assets/NosoDes.png"; // Asegúrate de tener una imagen en esta ruta
 
-export const Experiencia = () => {
+export const Experiencia = ({data}) => {
     return (
         <Box sx={{ width: '100%', height: { xs: '500px', sm: '400px' }, px: { xs: 1, sm: 5 }, justifyContent: 'center', bgcolor: 'common.white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
             <Typography variant="h3" sx={{ textAlign: 'center', color: 'primary.main', fontWeight: 700, fontSize: { xs: '20px', sm: '25px', md: '30px' } }}>
@@ -12,10 +12,8 @@ export const Experiencia = () => {
             </Typography>
             <Grid container spacing={2} sx={{ maxWidth: 1200, color: 'primary.main' }}>
                 <Grid size={{ xs: 12, sm: 6 }} sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="body1" sx={{ textAlign: 'justify', padding: { xs: 2, sm: 5 }, fontSize: { xs: '10px', sm: '12px', md: '16px' } }}>
-                        En Segurycons respaldamos nuestro compromiso con la seguridad a través de resultados. Nuestra experiencia en el sector nos permite ofrecer soluciones confiables, efectivas y adaptadas para cada actividad adaptadas para cada cliente.
-                        <br /><br />
-                        Cada proyecto representa un compromiso con la vida, la protección y el cumplimiento normativo
+                    <Typography variant="body1" sx={{ textAlign: 'justify', padding: { xs: 2, sm: 5 }, fontSize: { xs: '10px', sm: '12px', md: '16px' }, whiteSpace: "pre-line" }}>
+                        {data.experiencia}
                     </Typography>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }} >

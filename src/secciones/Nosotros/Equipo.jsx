@@ -1,26 +1,9 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import foto from "../../assets/NosoDes.png"; // Asegúrate de tener una imagen en esta ruta
 import { Typography } from '@mui/material';
 
-export const Equipo = () => {
-    const card = [
-        {
-            img: foto,
-            title: 'Ingeniería en Seguridad y Arquitectura: ',
-            description: 'Diseño de seguridad a la medida.'
-        },
-        {
-            img: foto,
-            title: 'Operaciones:',
-            description: 'Resultados efectivos, en tiempo y forma.'
-        },
-        {
-            img: foto,
-            title: 'Equipo de Mantenimiento: ',
-            description: 'Capataces y Técnicos. Fiabilidad operativa a largo plazo.'
-        },
-    ]
+export const Equipo = ({data}) => {
+    
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', padding: { xs: '40px 20px', md: '30px 20px' }, gap: 6
         }}>
@@ -38,9 +21,9 @@ export const Equipo = () => {
                     maxWidth: '1300px',
                     mx: 'auto',
                 }}>
-                {card.map((item, index) => (
+                {data.equipo.map((item, i) => (
                     <Box
-                        key={index}
+                        key={i}
                         sx={{
                             position: 'relative',
                             textAlign: 'center',

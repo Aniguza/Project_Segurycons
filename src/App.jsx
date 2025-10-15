@@ -8,6 +8,7 @@ import './App.css';
 // Páginas
 import { Inicio } from "./pages/Inicio";
 import { Nosotros } from "./pages/Nosotros";
+import { Servicios } from "./pages/Servicios";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Routes >
         <Route path="/" element={<Inicio />} />
         <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/servicios" element={<Servicios />} />
       </Routes>
       <Footer />
     </Router>

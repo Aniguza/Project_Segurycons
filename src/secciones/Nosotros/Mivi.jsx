@@ -1,29 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import heroImage from '../../assets/BannerSection.jpeg';
-import { FaRegHandshake } from "react-icons/fa";
-import { TbTargetArrow } from "react-icons/tb";
-import { FaRegEye } from "react-icons/fa6";
 
-export const Mivi = () => {
-    const card = [
-        {
-            icon: <FaRegHandshake />,
-            title: "Compromiso",
-            description: "En Segurycons, nuestro compromiso es con la seguridad y el bienestar de nuestros clientes. Nos dedicamos a proporcionar soluciones integrales y personalizadas que protejan vidas y propiedades, asegurando un entorno seguro para todos."
-        },
-        {
-            icon: <TbTargetArrow />,
-            title: "Misión",
-            description: "Proteger la vida y el entorno mediante soluciones integrales y sostenibles en seguridad y salud ocupacional, garantizando el cumplimiento normativo y la satisfacción de nuestros clientes."
-        },
-        {
-            icon: <FaRegEye />,
-            title: "Visión",
-            description: "Ser líderes reconocidos en el sector de seguridad y salud ocupacional, innovando constantemente para ofrecer servicios de alta calidad que superen las expectativas de nuestros clientes y contribuyan al bienestar de la comunidad."
-        }
-    ]
+export const Mivi = ({data}) => {
     return (
         <Box sx={{
             padding: { xs: '40px 20px', md: '80px 20px' },
@@ -38,9 +17,9 @@ export const Mivi = () => {
                 maxWidth: '1300px',
                 mx: 'auto',
             }}>
-                {card.map((item, index) => (
+                {data.valores.map((item, i) => (
                     <Box 
-                        key={index}
+                        key={i}
                         sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: { xs: 2, lg: 4 }, backgroundColor: 'secondary.main', padding: { xs: 3, md: 4 }, minHeight: { xs: '250px', sm: '290px', lg: '400px' }, height: '100%', minWidth: { xs: '200px', md: '270px', lg: '300px' }, width: '100%', color: 'white', border: '7px solid #F28737',
                             position: 'relative', '&::before': { content: "''", position: 'absolute', top: -2, right: -2, bottom: -2, left: -2, border: '5px solid' }, 
                             '& svg': { width: { xs: '40px', md: '50px' }, height: { xs: '40px', md: '50px' } }

@@ -1,32 +1,11 @@
 import React from "react";
 import { Box, keyframes, Typography, Grid, Card, CardContent, IconButton, Modal, Backdrop, Fade } from "@mui/material";
 import { ArrowBack, ArrowForward, Close } from "@mui/icons-material";
-import logo1 from "../../assets/Logo.png";
-import foto from "../../assets/Certificado1.jpg";
-import foto1 from "../../assets/Certificado2.jpg";
 import { useRef, useState } from "react";
 
 // Datos de testimonios
-const pdf = [
-    {
-        id: 1,
-        imagen: foto,
-    },
-    {
-        id: 2,
-        imagen: foto1,
-    },
-    {
-        id: 3,
-        imagen: foto,
-    },
-    {
-        id: 4,
-        imagen: foto1,
-    },
-];
 
-export const Normativas = () => {
+export const Normativas = ({data}) => {
     const sliderWrapperRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [openModal, setOpenModal] = useState(false);
@@ -40,8 +19,8 @@ export const Normativas = () => {
 
     // Agrupar pdf de 2 en 2
     const pdfPairs = [];
-    for (let i = 0; i < pdf.length; i += 2) {
-        pdfPairs.push(pdf.slice(i, i + 2));
+    for (let i = 0; i < data.pdf.length; i += 2) {
+        pdfPairs.push(data.pdf.slice(i, i + 2));
     }
 
     // Función para navegar en el carrusel de pdf
@@ -97,11 +76,10 @@ export const Normativas = () => {
                                 variant="h2"
                                 sx={{ fontSize: { xs: "1rem", md: "1.8rem" }, fontWeight: "bold", color: "primary.main", mb: 2, textAlign: { xs: 'center', md: 'justify' }, lineHeight: 1.3 }}
                             >
-                                Tu seguridad, respaldada por estándares que trascienden fronteras.
+                                {data.tituloCertificados}
                             </Typography>
                             <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5, textAlign: 'justify', fontSize: { xs: '0.8rem', md: '1.1rem' } }}>
-                                En SEGURYCONS trabajamos bajo normativas nacionales e internacionales que garantizan la calidad y confiabilidad de cada servicio. <br />
-                                Nuestras certificaciones y acreditaciones son el respaldo de nuestro compromiso con la seguridad y el cumplimiento normativo.
+                                {data.descripcionCertificados}
                             </Typography>
                         </Box>
 

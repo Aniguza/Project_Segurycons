@@ -81,11 +81,17 @@ export const Navbar = () => {
       <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: { xs: 1, md: 3 } }}>
         {/* Logo */}
         <Box
+
           sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 120, sm: 140, md: 220 }, marginLeft: { xs: 2, sm: 5, md: 6 } }}
-          component="img"
-          src={logo}
-          alt="Logo"
-        />
+          component="a"
+          href="/"
+        >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Box>
 
         {/* Links en pantallas grandes */}
         {isDesktop && (

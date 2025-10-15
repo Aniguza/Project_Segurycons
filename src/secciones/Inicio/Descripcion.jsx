@@ -118,13 +118,13 @@ export const Descripcion = () => {
     };
 
     return (
-        <Box 
-            component="section" 
-            sx={{ 
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center', 
-                mx: 'auto', 
+        <Box
+            component="section"
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                mx: 'auto',
                 width: '100%',
                 bgcolor: 'common.white',
             }}
@@ -144,8 +144,11 @@ export const Descripcion = () => {
                     </Box>
 
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }} >
+                <Grid size={{ xs: 12, sm: 6 }} >{/* Línea naranja encima del carrusel */}
+
                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 5 }, pb: 4 }}>
+
+
                         <MUICarousel
                             settings={{
                                 autoplay: true,
@@ -190,8 +193,25 @@ export const Descripcion = () => {
                                 />
                             ))}
                         </Box>
+                        {/* Línea naranja encima del carrusel 
+                        <Box sx={{ 
+                            position: 'absolute',
+                            mb: 2, 
+                            display: 'flex', 
+                            justifyContent: 'flex-start',
+                            width: '50%',
+                                 // Alto del contenedor
+                        }}>
+                            <OrangeLine 
+                                strokeWidth={7}      // Grosor de la línea (puedes cambiarlo: 2, 4, 6, 8, etc.)
+                                scrub={2}           // Velocidad de animación
+                                scrollLength={1500} // Longitud del scroll para completar la animación
+                                
+                            />
+                        </Box>*/}
                     </Box>
                 </Grid>
+
             </Grid>
         </Box>
     );

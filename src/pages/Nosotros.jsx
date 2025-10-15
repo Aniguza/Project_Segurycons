@@ -7,15 +7,17 @@ import { Mivi } from '../secciones/Nosotros/Mivi';
 import { Equipo } from '../secciones/Nosotros/Equipo';
 import { Normativas } from '../secciones/Nosotros/Normativas';
 
+import { aboutData } from "../data/aboutData";
+
 export const Nosotros = () => {
   return (
     <Box sx={{ mt: { xs: '55px', md: '106px' } }}>
-      <Banner />
-      <Descripcion />
-      <Experiencia />
-      <Mivi />
-      <Equipo />
-      <Normativas />
+      <Banner data={aboutData} />
+      <Descripcion data={aboutData}/>
+      <Experiencia data={aboutData}/>
+      <Mivi data={aboutData}/>
+      <Equipo data={aboutData}/>
+      <Normativas data={aboutData}/>
     </Box>
   );
 };
