@@ -62,8 +62,8 @@ export const BannerSections = ({ data }) => {
                 sx={{
                     position: 'absolute',
                     top: 0,
-                    left: 0,
-                    width: '50%',
+                    left: { xs: -170, sm: -100, lg: 0 },
+                    width: { xs: "100%", sm: "70%", lg: "50%" },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',
@@ -85,13 +85,13 @@ export const BannerSections = ({ data }) => {
                     }}
                 />
             </Box>
-            {/* Imagen decorativa izquierda */}
+            {/* Imagen decorativa derecha */}
             <Box
                 sx={{
                     position: 'absolute',
                     bottom: 0,
-                    right: 0,
-                    width: '50%',
+                    right: { xs: -170, sm: -100, lg: 0 },
+                    width: { xs: '100%', sm: '70%', lg: '50%' },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',
