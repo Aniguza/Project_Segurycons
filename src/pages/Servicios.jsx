@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Grid, Typography } from '@mui/material'
+import { Link } from 'react-router'
 import { servicesData } from "../data/servicesData";
 import { BannerSections } from '../components/BannerSections';
 
@@ -62,12 +63,14 @@ export const Servicios = () => {
                                     {servicio.descripcion}
                                 </Typography>
                                 <Typography
-                                    component="span"
+                                    component={Link}
+                                    to={`/servicios/${servicio.id}`}
                                     sx={{
                                         color: 'error.main',
                                         fontSize: '0.875rem',
                                         fontWeight: 600,
                                         cursor: 'pointer',
+                                        textDecoration: 'none',
                                         '&:hover': {
                                             textDecoration: 'underline'
                                         }

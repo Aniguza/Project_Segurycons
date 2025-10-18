@@ -2,9 +2,7 @@ import React, { useRef, useState } from "react";
 import {
     Box,
     Typography,
-    Card,
     CardMedia,
-    CardContent,
     Grid,
 } from "@mui/material";
 import OrangeLine from "../../components/OrangeLine";
