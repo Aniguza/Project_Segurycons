@@ -11,7 +11,7 @@ import { BorderAll } from "@mui/icons-material";
 
 export const Footer = () => {
     return (
-        <>
+        <Box >
 
             <Box
                 component="footer"
@@ -21,6 +21,7 @@ export const Footer = () => {
                     display: "flex",
                     justifyContent: "center",
                     width: "100%",
+                    
                 }}
             >
                 <Grid
@@ -129,6 +130,6 @@ export const Footer = () => {
                     © 2025 SEGURYCONS. Todos los derechos reservados.
                 </Typography>
             </Box>
-        </>
+        </Box>
     );
 }

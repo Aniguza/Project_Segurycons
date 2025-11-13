@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const OrangeLine = ({ strokeWidth = 6, triggerRef = null, scrollLength = 3000, scrub = 1.5 }) => {
+const OrangeLine = ({ strokeWidth = 6, triggerRef = null, scrollLength = 3000, scrub = 1.5, width = 326, height = 384, maintainAspect = true, color = "#F28737" }) => {
   const pathRef = useRef(null);
   const wrapperRef = useRef(null);
 
@@ -50,20 +50,27 @@ const OrangeLine = ({ strokeWidth = 6, triggerRef = null, scrollLength = 3000, s
   return (
     <Box
       ref={wrapperRef}
-      sx={{ width: "50%", height: "100%", display: "flex", alignItems: "flex-start" }}
+      sx={{ 
+        width: width, 
+        height: height, 
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center"
+      }}
     >
       <svg
-        width="326"
-        height="384"
-        viewBox="0 0 326 384"
+        width={width}
+        height={height}
+        viewBox={maintainAspect ? "0 0 326 384" : `0 0 ${Math.min(326, width)} ${height * (384/height)}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio={maintainAspect ? "xMidYMid meet" : "none"}
         style={{ overflow: "visible" }}
       >
         <path
           ref={pathRef}
           d="M320.5 38.3274L320.5 6.32743L173.171 50.0763L173.171 319.327L5.00001 377.328L5.00001 339.328"
-          stroke="#F28737"
+          stroke={color}
           strokeWidth={strokeWidth}
           style={{ visibility: "hidden" }}
         />

@@ -1,0 +1,64 @@
+Listado de rutas de carpetas
+El número de serie del volumen es FEC7-4A3C
+C:\XAMPP\HTDOCS\PROJECT_SEGURYCONS\SRC
+¦   App.css
+¦   App.jsx
+¦   main.jsx
+¦   Theme.jsx
+¦   
++---assets
+¦   ¦   BannerSection.jpeg
+¦   ¦   Certificado1.jpg
+¦   ¦   Certificado2.jpg
+¦   ¦   Hero.png
+¦   ¦   Linea.svg
+¦   ¦   Logo-bn.png
+¦   ¦   Logo.png
+¦   ¦   NosoDes.png
+¦   ¦   Recurso.png
+¦   ¦   Recurso2.png
+¦   ¦   RecursoDetalle.png
+¦   ¦   
+¦   +---css
+¦   +---fonts
+¦           centurygothic.ttf
+¦           centurygothic_bold.ttf
+¦           
++---components
+¦       BannerSections.jsx
+¦       BannerServices.jsx
+¦       Carousel.jsx
+¦       Footer.jsx
+¦       Menu.jsx
+¦       MUICarousel.jsx
+¦       Navbar.jsx
+¦       OrangeLine.jsx
+¦       
++---data
+¦       aboutData.jsx
+¦       servicesData.jsx
+¦       
++---lib
+¦       utils.js
+¦       
++---pages
+¦       DetallesServicios.jsx
+¦       Inicio.jsx
+¦       Nosotros.jsx
+¦       Servicios.jsx
+¦       
++---secciones
+    +---Inicio
+    ¦       Clientes.jsx
+    ¦       Descripcion.jsx
+    ¦       Hero.jsx
+    ¦       ServiciosCarousel.jsx
+    ¦       
+    +---Nosotros
+            Banner.jsx
+            Descripcion.jsx
+            Equipo.jsx
+            Experiencia.jsx
+            Mivi.jsx
+            Normativas.jsx
+            

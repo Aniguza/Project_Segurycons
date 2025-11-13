@@ -5,6 +5,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Collapse from '@mui/material/Collapse';
 import { Menu } from "../components/Menu";
+import { Link, useLocation } from "react-router";
 
 import {
   AppBar,
@@ -20,15 +21,15 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
+import { ChevronDown } from 'lucide-react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Link } from "react-router";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assets/Logo.png";
 
-// Estilos compartidos
-const linkStyles = {
-  color: "primary.main",
+// Función para crear estilos de link con estado activo
+const getLinkStyles = (isActive) => ({
+  color: isActive ? "orange.main" : "primary.main",
   fontWeight: "700",
   fontSize: "1.1rem",
   textDecoration: "none",
@@ -45,7 +46,19 @@ const linkStyles = {
     left: "0",
     backgroundColor: "orange.main",
   },
-};
+  // Línea naranja para item activo
+  ...(isActive && {
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      width: "100%",
+      height: "2px",
+      bottom: "-4px",
+      left: "0",
+      backgroundColor: "orange.main",
+    }
+  })
+});
 
 export const Navbar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -53,6 +66,19 @@ export const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const location = useLocation();
+
+  // Función para determinar si un link está activo
+  const isLinkActive = (linkPath) => {
+    return location.pathname === linkPath ||
+      (linkPath !== "/" && location.pathname.startsWith(linkPath));
+  };
+
+  // Función para determinar si "Qué hacemos" está activo
+  const isQueHacemosActive = () => {
+    const queHacemosPaths = ["/servicios", "/mantenimiento", "/consultoria"];
+    return queHacemosPaths.some(path => location.pathname.startsWith(path));
+  };
 
   // --- Popover (desktop)
   const handlePopoverOpen = (event) => {
@@ -102,7 +128,18 @@ export const Navbar = () => {
               onMouseLeave={handlePopoverClose}
               sx={{ display: "flex", alignItems: "center", cursor: "pointer", height: "100%" }}
             >
-              <Typography sx={{ ...linkStyles, mb: 0 }}>Qué hacemos</Typography>
+              <Typography sx={{
+                ...getLinkStyles,
+                mb: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                fontWeight: "700",
+                fontSize: "1.1rem",
+                color: "primary.main",
+              }}>
+                Qué hacemos <ChevronDown />
+              </Typography>
               <Popover
                 open={open}
                 anchorEl={anchorEl}
@@ -137,7 +174,12 @@ export const Navbar = () => {
 
             {/* Resto de links */}
             {links.map((link) => (
-              <MuiLink key={link.to} component={Link} to={link.to} sx={linkStyles}>
+              <MuiLink
+                key={link.to}
+                component={Link}
+                to={link.to}
+                sx={getLinkStyles(isLinkActive(link.to))}
+              >
                 {link.label}
               </MuiLink>
             ))}
@@ -148,9 +190,9 @@ export const Navbar = () => {
         {!isDesktop && (
           <>
             <IconButton
-              sx={{ color: "primary.main"}}
+              sx={{ color: "primary.main" }}
               onClick={() => setOpenDrawer(true)}
-              
+
             >
               <MenuIcon sx={{ width: { xs: 20, sm: 25, md: 40 }, height: { xs: 20, sm: 25, md: 40 } }} />
             </IconButton>

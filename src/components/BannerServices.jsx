@@ -6,9 +6,53 @@ import Recurso from '../assets/RecursoDetalle.png';
 import { useParams } from 'react-router'
 
 
-export const BannerServices = ({ data }) => {
-    const { id } = useParams();
-    const servicio = data.servicios.find(s => s.id === parseInt(id));
+export const BannerServices = ({ data, serviceType = "servicios" }) => {
+    const { slug } = useParams();
+    
+    // Función para buscar el servicio según el tipo
+    const findService = () => {
+        if (!data) return null;
+        
+        // Si es un servicio normal
+        if (serviceType === "servicios" && data.servicios) {
+            return data.servicios.find(s => s.slug === slug);
+        }
+        
+        // Si es mantenimiento
+        if (serviceType === "mantenimiento" && data.mantenimiento) {
+            return data.mantenimiento.find(s => s.slug === slug);
+        }
+        
+        // Si es consultoría
+        if (serviceType === "consultoria" && data.consultoria) {
+            return data.consultoria.find(s => s.slug === slug);
+        }
+        
+        // Fallback: buscar en servicios por defecto
+        if (data.servicios) {
+            return data.servicios.find(s => s.slug === slug);
+        }
+        
+        return null;
+    };
+    
+    const servicio = findService();
+    
+    // Función para obtener el título de la categoría
+    const getCategoryTitle = () => {
+        switch (serviceType) {
+            case "mantenimiento":
+                return "Mantenimiento";
+            case "consultoria":
+                return "Consultoría";
+            case "servicios":
+            default:
+                return "Servicio";
+        }
+    };
+    
+    // Si no se encuentra el servicio, mostrar título genérico
+    const serviceTitle = servicio?.titulo || data?.titulo || getCategoryTitle();
 
     return (
         <Box
@@ -54,26 +98,26 @@ export const BannerServices = ({ data }) => {
                         color: 'secondary.main',
                         maxWidth: 1900,
                         fontWeight: 700,
-                        fontSize: { xs: 30, md: 40, lg: 25 },
+                        fontSize: { xs: 20, sm: 25, md: 30, lg: 40 },
                         textAlign: 'center',
                         
                     }}
                 >
-                    Servicio
+                    {getCategoryTitle()}
                 </Typography>
                 <Typography
                     variant="subtitle1"
                     sx={{
                         color: 'primary.main',
-                        maxWidth: 650,
+                        maxWidth: 680,
 
                         fontWeight: 700,
-                        fontSize: { xs: 30, md: 40, lg: 30 },
+                        fontSize: { xs: 15, sm: 20, md: 25, lg: 30 },
                         textAlign: 'center',
                         
                     }}
                 >
-                    {servicio.titulo}
+                    {serviceTitle}
                 </Typography>
             </Box>
             {/* Imagen decorativa izquierda */}
@@ -81,8 +125,8 @@ export const BannerServices = ({ data }) => {
                 sx={{
                     position: 'absolute',
                     top: 0,
-                    right: { xs: -170, sm: -100, lg: 0 },
-                    width: { xs: "100%", sm: "70%", lg: "40%" },
+                    right: { xs: -120, sm: -180, lg: 0 },
+                    width: { xs: "80%", sm: "60%", lg: "40%" },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',
@@ -110,8 +154,8 @@ export const BannerServices = ({ data }) => {
                 sx={{
                     position: 'absolute',
                     bottom: 0,
-                    left: { xs: -170, sm: -100, lg: 0 },
-                    width: { xs: '100%', sm: '70%', lg: '40%' },
+                    left: { xs: -120, sm: -180, lg: 0 },
+                    width: { xs: '80%', sm: '60%', lg: '40%' },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',

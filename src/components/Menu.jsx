@@ -32,7 +32,6 @@ export const Menu = () => {
       ]
     }
   ];
-
   return (
     <Box sx={{ bgcolor: '#2C3E5B', p: 6, width: '100%', color: 'common.white' }}>
       <Grid container spacing={4}>

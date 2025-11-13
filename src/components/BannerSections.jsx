@@ -4,7 +4,22 @@ import Typography from '@mui/material/Typography';
 import heroImage from '../assets/BannerSection.jpeg';
 import Recurso from '../assets/Recurso2.png';
 
-export const BannerSections = ({ data }) => {
+export const BannerSections = ({ data, serviceType = "servicios" }) => {
+    // Función para obtener el título de la categoría
+    const getCategoryTitle = () => {
+        switch (serviceType) {
+            case "mantenimiento":
+                return "Mantenimiento";
+            case "consultoria":
+                return "Consultoría";
+            case "servicios":
+            default:
+                return "Servicios";
+        }
+    };
+
+    // Usar el serviceType pasado como prop como prioridad
+    const displayTitle = getCategoryTitle();
     return (
         <Box
             sx={{
@@ -49,12 +64,12 @@ export const BannerSections = ({ data }) => {
                         color: '#22346C',
                         maxWidth: 1900,
                         fontWeight: 700,
-                        fontSize: { xs: 30, md: 40, lg: 45 },
+                        fontSize: { xs: 25, sm: 35, md: 40, lg: 50},
                         textAlign: 'center',
                         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                     }}
                 >
-                    {data.titulo}
+                    {displayTitle}
                 </Typography>
             </Box>
             {/* Imagen decorativa izquierda */}
@@ -62,8 +77,10 @@ export const BannerSections = ({ data }) => {
                 sx={{
                     position: 'absolute',
                     top: 0,
-                    left: { xs: -170, sm: -100, lg: 0 },
-                    width: { xs: "100%", sm: "70%", lg: "50%" },
+                    left: { xs: -130, sm: -150, lg: 0 },
+                    width: { xs: "90%", sm: "70%", lg: "50%"},
+                    '@media (min-width:1800px)': { width: '45%' },
+                    '@media (min-width:2200px)': { width: '40%' },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',
@@ -90,8 +107,10 @@ export const BannerSections = ({ data }) => {
                 sx={{
                     position: 'absolute',
                     bottom: 0,
-                    right: { xs: -170, sm: -100, lg: 0 },
-                    width: { xs: '100%', sm: '70%', lg: '50%' },
+                    right: { xs: -130, sm: -150, lg: 0 },
+                    width: { xs: '90%', sm: '70%', lg: '50%' },
+                    '@media (min-width:1800px)': { width: '45%' },
+                    '@media (min-width:2200px)': { width: '40%' },
                     zIndex: 3,
                     display: 'flex',
                     alignItems: 'flex-start',

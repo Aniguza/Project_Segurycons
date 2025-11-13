@@ -41,7 +41,8 @@ const CarouselSlide = ({ item }) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            p: 2
+            p: 2,
+            height: { xs: '100%', md: '260px' }
         }}>
             <Box sx={{
                 backgroundColor: 'primary.main',
@@ -58,7 +59,7 @@ const CarouselSlide = ({ item }) => {
                     image={item.image}
                     alt={item.title}
                     sx={{
-                        width: { xs: '100%', md: '40%' },
+                        width: { xs: '100%', md: '50%' },
 
                         objectFit: 'cover',
                         flexShrink: 0
@@ -95,6 +96,7 @@ const CarouselSlide = ({ item }) => {
                             lineHeight: 1.4,
                             fontSize: { xs: '0.8rem', md: '0.9rem' },
                             mb: 2,
+                            width: '100%',
                             textAlign: { xs: 'center', md: 'left' },
                         }}
                     >
@@ -144,10 +146,11 @@ export const Descripcion = () => {
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }} >{/* Línea naranja encima del carrusel */}
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 5 }, pb: 4 }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 5 }, pb: 4, position: 'relative' }}>
 
-
-                        <MUICarousel
+                        {/* Contenedor del carrusel con posición relativa */}
+                        <Box sx={{ position: 'relative' }}>
+                            <MUICarousel
                             settings={{
                                 autoplay: true,
                                 autoplaySpeed: 3000,
@@ -191,22 +194,32 @@ export const Descripcion = () => {
                                 />
                             ))}
                         </Box>
-                        {/* Línea naranja encima del carrusel 
-                        <Box sx={{ 
-                            position: 'absolute',
-                            mb: 2, 
-                            display: 'flex', 
-                            justifyContent: 'flex-start',
-                            width: '50%',
-                                 // Alto del contenedor
-                        }}>
-                            <OrangeLine 
-                                strokeWidth={7}      // Grosor de la línea (puedes cambiarlo: 2, 4, 6, 8, etc.)
-                                scrub={2}           // Velocidad de animación
-                                scrollLength={1500} // Longitud del scroll para completar la animación
-                                
-                            />
-                        </Box>*/}
+
+                            {/* Línea naranja centrada específicamente en el carrusel */}
+                            <Box sx={{ 
+                                position: 'absolute',
+                                top: '50.5%',
+                                left: '52.3%',
+                                transform: 'translate(-50%, -50%)',
+                                display: { md: 'flex', xs: 'none' },
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                width: '80%',
+                                height: '80%',
+                                pointerEvents: 'none', // Para que no interfiera con la interacción del carrusel
+                                zIndex: 2
+                            }}>
+                                <OrangeLine 
+                                    strokeWidth={9}      // Grosor de la línea (puedes cambiarlo: 2, 4, 6, 8, etc.)
+                                    stroke="primary.main"
+                                         // Ancho del SVG en píxeles
+                                    height={315}         // Altura del SVG en píxeles (más corto)
+                                    scrub={30}           // Velocidad de animación (más alto = más lento)
+                                    scrollLength={100000}  // Longitud del scroll para completar la animación (más alto = más lento)
+                                    
+                                />
+                            </Box>
+                        </Box>
                     </Box>
                 </Grid>
 

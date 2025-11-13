@@ -4,6 +4,7 @@ import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import logo1 from "../../assets/Logo.png";
 import foto from "../../assets/Hero.png";
 import { useRef, useState } from "react";
+import OrangeLine from "../../components/OrangeLine";
 
 // Datos de testimonios
 const testimonios = [
@@ -95,7 +96,7 @@ export const Clientes = () => {
             </Typography>
             <Box
                 sx={{
-                    width: { xs: '80%', xl: '100%' },
+                    width: { xs: '80%' },
                     overflow: "hidden",
                     WebkitMaskImage:
                         "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
@@ -147,7 +148,7 @@ export const Clientes = () => {
                     alignItems: 'center',
                     mx: 'auto',
                     width: '100%',
-
+                    mt: 5,
                 }}
             >
                 <Grid container spacing={2} sx={{ flexGrow: 1, maxWidth: '1200px', height: { xs: 'auto', sm: '450px' } }}>
@@ -179,11 +180,38 @@ export const Clientes = () => {
                         }}>
                             {/* Carrusel de testimonios */}
                             <Box sx={{ position: 'relative', width: '100%' }}>
+                                {/* Línea naranja centrada específicamente en el carrusel - FUERA del overflow hidden */}
+                                <Box sx={{ 
+                                    position: 'absolute',
+                                    top: '41.2%',
+                                    left: '48.3%',
+                                    transform: 'translate(-50%, -50%)',
+                                    display: { md: 'flex', xs: 'none' }, 
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    width: '100%',
+                                    height: '100%',
+                                    pointerEvents: 'none', // Para que no interfiera con la interacción del carrusel
+                                    zIndex: 2,
+
+                                }}>
+                                    <OrangeLine 
+                                        strokeWidth={4}      // Grosor de la línea
+                                                  // Ancho del SVG controlado
+                                        height={420}         // Altura del SVG en píxeles (mucho más grande)
+                                        color="#A30000"
+                                        maintainAspect={false} // No mantener proporciones para controlar mejor el ancho
+                                        scrub={2}           // Velocidad de animación (más alto = más lento)
+                                        scrollLength={200}  // Longitud del scroll para completar la animación
+                                    />
+                                </Box>
+
                                 {/* Container del carrusel */}
                                 <Box sx={{ 
                                     overflow: 'hidden', 
                                     borderRadius: 2,
-                                    height: { xs: '400px', md: '300px' }
+                                    height: { xs: '400px', md: '300px' },
+                                    position: 'relative'
                                 }}>
                                     <Box sx={{
                                         display: 'flex',
@@ -210,7 +238,8 @@ export const Clientes = () => {
                                                             minHeight: { xs: '180px', md: '280px' },
                                                             backgroundColor: '#f8f9fa',
                                                             boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                                                            borderRadius: 2
+                                                            borderRadius: 2,
+                                                            border: '2px solid gray',
                                                         }}
                                                     >
                                                         <CardContent sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -256,6 +285,7 @@ export const Clientes = () => {
 
                                 {/* Flechas de navegación centradas abajo */}
                                 <Box sx={{ 
+                                    zIndex: 1,
                                     display: 'flex', 
                                     justifyContent: 'center', 
                                     alignItems: 'center',
