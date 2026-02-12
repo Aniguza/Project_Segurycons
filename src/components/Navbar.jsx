@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { useTheme, useMediaQuery } from "@mui/material";
 import Popover from "@mui/material/Popover";
-import Collapse from '@mui/material/Collapse';
+import Fade from "@mui/material/Fade";
 import { Menu } from "../components/Menu";
 import { Link, useLocation } from "react-router";
 
@@ -17,12 +17,9 @@ import {
   List,
   ListItem,
   ListItemText,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
+  Divider,
 } from "@mui/material";
-import { ChevronDown } from 'lucide-react';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ChevronDown } from "lucide-react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assets/Logo.png";
@@ -128,42 +125,41 @@ export const Navbar = () => {
               onMouseLeave={handlePopoverClose}
               sx={{ display: "flex", alignItems: "center", cursor: "pointer", height: "100%" }}
             >
-              <Typography sx={{
-                ...getLinkStyles,
-                mb: 0,
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                fontWeight: "700",
-                fontSize: "1.1rem",
-                color: "primary.main",
-              }}>
-                Qué hacemos <ChevronDown />
+              <Typography
+                sx={{
+                  ...getLinkStyles(isQueHacemosActive()),
+                  mb: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.5,
+                  fontWeight: "700",
+                  fontSize: "1.1rem",
+                }}
+              >
+                Qué hacemos <ChevronDown size={18} style={{ flexShrink: 0 }} />
               </Typography>
               <Popover
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handlePopoverClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
                 disableRestoreFocus
-                slot={Collapse}
-                transitionDuration={350}
+                TransitionComponent={Fade}
+                transitionDuration={250}
                 slotProps={{
                   paper: {
                     onMouseEnter: () => setHovered(true),
                     onMouseLeave: handlePopoverClose,
                     sx: {
-                      mt: "40px",
-                      width: "100vw", // ancho grande (mega menú)
+                      mt: 4.5,
+                      left: "0px !important",
+                      right: "0px !important",
+                      width: "100vw",
                       maxWidth: "100%",
-                      borderRadius: 0,
+                      marginLeft: "0 !important",
+                      boxShadow: "0 12px 40px rgba(0,0,0,0.18)",
+                      overflow: "hidden",
                     },
                   },
                 }}
@@ -202,42 +198,56 @@ export const Navbar = () => {
               anchor="right"
               open={openDrawer}
               onClose={() => setOpenDrawer(false)}
-              PaperProps={{ sx: { width: "100%" } }}
+              PaperProps={{
+                sx: {
+                  width: "min(100%, 320px)",
+                  maxWidth: 320,
+                  boxShadow: "-4px 0 24px rgba(0,0,0,0.12)",
+                },
+              }}
             >
-              <Box sx={{ width: "100%", p: 2 }}>
-                <IconButton onClick={() => setOpenDrawer(false)} sx={{ mb: 2 }}>
-                  <CloseIcon />
-                </IconButton>
-                <List>
-                  {/* Primer item: Qué hacemos como Accordion */}
-                  <Accordion sx={{ bgcolor: 'transparent', boxShadow: 'none' }}>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon sx={{ color: 'primary.main' }} />}
-                      aria-controls="menu-content"
-                      id="menu-header"
-                    >
-                      <Typography variant="h6" >
-                        Qué hacemos
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails sx={{ p: 0, mb: 2 }}>
-                      <Menu />
-                    </AccordionDetails>
-                  </Accordion>
-
-                  {/* Resto de links */}
-                  {links.map((link) => (
-                    <ListItem button key={link.to} onClick={() => setOpenDrawer(false)}>
-                      <MuiLink
-                        sx={{ marginRight: "50px" }}
-                        component={Link}
-                        to={link.to}
+              <Box sx={{ height: "100%", display: "flex", flexDirection: "column", bgcolor: "background.paper" }}>
+                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", px: 2, py: 1.5, borderBottom: "1px solid", borderColor: "divider" }}>
+                  <Typography variant="subtitle1" fontWeight={700} color="primary.main">
+                    Menú
+                  </Typography>
+                  <IconButton onClick={() => setOpenDrawer(false)} size="small" sx={{ color: "primary.main" }} aria-label="Cerrar menú">
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+                <Box sx={{ flex: 1, overflow: "auto", px: 2, py: 2 }}>
+                  <Typography sx={{ color: "primary.main", fontWeight: 600, display: "block" }}>
+                    Qué hacemos
+                  </Typography>
+                  <Box sx={{color: "primary.main", p: 2, }}>
+                    <Menu isMobile />
+                  </Box>
+                  <Divider sx={{ my: 1 }} />
+                  <List disablePadding>
+                    {links.map((link) => (
+                      <ListItem
+                        key={link.to}
+                        disablePadding
+                        onClick={() => setOpenDrawer(false)}
+                        sx={{ mb: 0.5 }}
                       >
-                        <ListItemText primary={link.label} />
-                      </MuiLink>
-                    </ListItem>
-                  ))}
-                </List>
+                        <MuiLink
+                          component={Link}
+                          to={link.to}
+                          sx={{
+                            ...getLinkStyles(isLinkActive(link.to)),
+                            py: 0.70,
+                            px: 0,
+                            width: "100%",
+                            display: "block",
+                          }}
+                        >
+                          <ListItemText primary={link.label} primaryTypographyProps={{ fontWeight: 600, fontSize: "1rem" }} />
+                        </MuiLink>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
               </Box>
             </Drawer>
           </>

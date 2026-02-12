@@ -16,6 +16,7 @@ import { Mantenimiento } from "./pages/Mantenimiento";
 import { DetalleMantenimiento } from "./pages/DetalleMantenimiento";
 import { Consultoria } from "./pages/Consultoria";
 import { DetalleConsultoria } from "./pages/DetalleConsultoria";
+import { Contacto } from "./pages/Contacto";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/mantenimiento/:slug" element={<DetalleMantenimiento />} />
             <Route path="/consultoria" element={<Consultoria />} />
             <Route path="/consultoria/:slug" element={<DetalleConsultoria />} />
+            <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </Box>
         <Footer />

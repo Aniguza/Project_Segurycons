@@ -12,6 +12,8 @@ export const BannerSections = ({ data, serviceType = "servicios" }) => {
                 return "Mantenimiento";
             case "consultoria":
                 return "Consultoría";
+            case "contacto":
+                return "Contacto";
             case "servicios":
             default:
                 return "Servicios";
