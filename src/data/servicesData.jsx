@@ -10,7 +10,7 @@ export const servicesData = {
             titulo: "SERVICIOS DE PINTURA INDUSTRIAL Y COMERCIAL",
             subtitulo: "Servicios de pintura industrial y comercial",
             descripcion: "Servicios especializados de pintura con materiales de alta resistencia para el mantenimiento estético y estructural de sus plantas y oficinas.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952386/servicio_de_pintura_gbvp3w.png",
             descripcion_larga: "Ejecutamos proyectos de pintura interior y exterior con materiales industriales y de alta resistencia. Mantenemos la imagen corporativa de sus instalaciones y protegemos sus estructuras contra la corrosión y el desgaste ambiental.",
             normativa: `Estándares de seguridad industrial y calidad de materiales (NTP) (ISO)`,
             ofrecemos: `<ul>
@@ -29,7 +29,7 @@ export const servicesData = {
             titulo: "SERVICIOS DE DRYWALL Y CONSTRUCCIÓN LIGERA",
             subtitulo: "Servicios de drywall y construcción ligera",
             descripcion: "Implementación y modificación rápida de paredes, techos y divisiones en drywall para optimizar la distribución de áreas operativas.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952483/servicio_de_drywall_zzumvc.png",
             descripcion_larga: "Una solución ágil y limpia para optimizar la distribución de sus oficinas o almacenes. Creamos divisiones, falsos techos y elementos decorativos, asegurando la continuidad de sus operaciones con mínima interferencia.",
             normativa: "RNE (Norma E.070, Norma A.120).",
             ofrecemos: `<ul>
@@ -48,7 +48,7 @@ export const servicesData = {
             titulo: "INSTALACIÓN Y MANTENIMIENTO DE ESTRUCTURAS METÁLICAS",
             subtitulo: "Instalación y mantenimiento de estructuras metálicas",
             descripcion: "Diseño, fabricación e instalación de estructuras metálicas con trabajos de soldadura especializada y certificada.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952526/estructuras_met%C3%A1licas_evj7eh.png",
             descripcion_larga: "Fabricamos e instalamos techos, mezzanines, soportes industriales y escaleras. Garantizamos la seguridad estructural y el cumplimiento de las normas de calidad, ofreciendo servicios de subcontratación confiables para grandes proyectos.",
             normativa: "RNE (Norma E.090), Códigos de Soldadura AWS.",
             ofrecemos: `<ul>
@@ -67,7 +67,7 @@ export const servicesData = {
             titulo: "ALBAÑILERÍA Y ACABADOS DE MANTENIMIENTO",
             subtitulo: "Albañilería y acabados de mantenimiento",
             descripcion: "Servicios de albañilería general para reparaciones, modificaciones y acabados, manteniendo la infraestructura en óptimas condiciones.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952555/ALBA%C3%91ILERIA_eunjpb.png",
             descripcion_larga: "Solucionamos desperfectos en muros, pisos, cimentaciones menores y áreas comunes. Proporcionamos un servicio integral de mantenimiento correctivo y preventivo de infraestructura civil. Ideal para mantener la funcionalidad y seguridad de sus sedes corporativas y almacenes.",
             normativa: "RNE (Norma E.020 - Cargas, E.050 - Suelos), normas de seguridad en construcción.",
             ofrecemos: `<ul>
@@ -86,7 +86,7 @@ export const servicesData = {
             titulo: "SANEAMIENTO AMBIENTAL Y CONTROL DE PLAGAS",
             subtitulo: "Saneamiento ambiental y control de plagas",
             descripcion: "Programas de saneamiento y control de plagas certificados para garantizar un entorno industrial y corporativo seguro e higiénico.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952574/PLAGAS_pn4npo.png",
             descripcion_larga: "Implementamos planes de desinfección, desratización y fumigación periódica con certificación oficial. Aseguramos que sus áreas de producción y oficinas cumplan con los más altos estándares de salud y sanidad requeridos por normativas internas y externas.",
             normativa: "MINSA (Ministerio de Salud), DGESA (Dirección General de Salud Ambiental).",
             ofrecemos: `<ul>
@@ -105,7 +105,7 @@ export const servicesData = {
             titulo: "LICENCIAS DE OBRA Y HABILITACIONES URBANAS",
             subtitulo: "Licencias de obra y habilitaciones urbanas",
             descripcion: "Gestión integral de su Licencia de Edificación y Habilitación Urbana para que sus proyectos de inversión inicien bajo el marco legal vigente.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952586/LICENCIA_DE_OBRA_aqaspx.png",
             descripcion_larga: "Asesoramos y gestionamos todos los permisos necesarios para la construcción o modificación de sus activos inmobiliarios. Nos encargamos del expediente técnico y el seguimiento municipal para que su inversión se ejecute bajo el marco legal vigente, evitando paralizaciones y multas.",
             normativa: "Ley N° 29090 (Regulación de Habilitaciones Urbanas y de Edificaciones), RNE.",
             ofrecemos: `<ul>
@@ -124,7 +124,7 @@ export const servicesData = {
             titulo: "SANEAMIENTO FÍSICO LEGAL DE PREDIOS",
             subtitulo: "Saneamiento físico legal de predios",
             descripcion: "Regularización de la situación física y legal de sus propiedades ante registros públicos y municipalidades para blindar su patrimonio.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952610/SANEAMIENTO_h4k2bp.png",
             descripcion_larga: "Resolvemos discrepancias registrales, de linderos, áreas y titularidades. Un predio saneado físicamente y legalmente es indispensable para la obtención de créditos, licitaciones y la protección de su inversión. Nuestro equipo legal y técnico garantiza la correcta inscripción de su propiedad.",
             normativa: "Ley N° 27157 (Regularización de Edificaciones), Ley de Catastro Urbano, SUNARP.",
             ofrecemos: `<ul>
@@ -143,7 +143,7 @@ export const servicesData = {
             titulo: "REGULARIZACIÓN DE OBRAS Y DECLARATORIAS DE FÁBRICA",
             subtitulo: "Regularización de obras y declaratorias de fábrica",
             descripcion: "Gestión integral de la regularización de obras civiles y la inscripción de la Declaratoria de Fábrica ante registros públicos.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952657/REGULARIZACI%C3%93N_DE_OBRAS_kbnkdu.jpg",
             descripcion_larga: "Nos encargamos de todos los trámites para formalizar edificaciones existentes que carecen de licencia o de la inscripción de la Declaratoria de Fábrica. Esto asegura que el valor legal y registral de su infraestructura sea reconocido oficialmente.",
             normativa: "Ley N° 27157 (Regularización de Edificaciones), Ley de Catastro.",
             ofrecemos: `<ul>
@@ -162,7 +162,7 @@ export const servicesData = {
             titulo: "CERTIFICADOS DE ZONIFICACIÓN Y COMPATIBILIDAD DE USO",
             subtitulo: "Certificados de zonificación y compatibilidad de uso",
             descripcion: "Tramitamos su Certificado de Compatibilidad de Uso confirmando que su actividad corporativa sea legalmente viable en la ubicación elegida.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207551/6a5887cb-f072-478e-90df-a442fd8bfc67_zqohqa.png",
             descripcion_larga: "Este certificado es crucial para la obtención de la Licencia de Funcionamiento y la planificación de inversión. Verificamos que los planes municipales permitan el desarrollo de su rubro industrial o comercial en la zona, mitigando el riesgo de rechazo de proyectos.",
             normativa: "Ley Orgánica de Municipalidades, Planes de Acondicionamiento Territorial (PAT) y Desarrollo Urbano (PDU).",
             ofrecemos: `<ul>
@@ -181,7 +181,7 @@ export const servicesData = {
             titulo: "CERTIFICADOS DE USO DE SUELO, ZONIFICACIÓN Y VÍAS",
             subtitulo: "Certificados de uso de suelo, zonificación y vías",
             descripcion: "Gestionamos los certificados que definen el uso específico del suelo y las vías circundantes a su propiedad, claves para cualquier proyecto.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207435/uso_de_suelo_ruujtw.png",
             descripcion_larga: "Proporcionamos la documentación oficial sobre la calificación de su terreno y el impacto vial. Esta información es requerida por entidades financieras, para trámites de licencia de obra y para la presentación en grandes licitaciones.",
             normativa: "Planes de Acondicionamiento Territorial (PAT) y Desarrollo Urbano (PDU), Ley Orgánica de Municipalidades.",
             ofrecemos: `<ul>
@@ -202,7 +202,7 @@ export const servicesData = {
             titulo: "IMPLEMENTACIÓN DE EQUIPOS DE SEGURIDAD POST OBRA",
             subtitulo: "Implementación de equipos de seguridad post obra",
             descripcion: "Suministro e instalación final de equipos de seguridad y señalización esenciales para la puesta en marcha de su nueva infraestructura.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207278/68580575-78bf-4db3-936b-54c10649e316_sg0c5c.png",
             descripcion_larga: "Cerramos el ciclo de su proyecto constructivo con la implementación de todos los elementos de seguridad pasiva y activa obligatorios, incluyendo señalización, equipos DACI y luces de emergencia. Garantizamos que la entrega de su obra cumpla con los estándares requeridos para su certificación final.",
             normativa: "RNE (Reglamento Nacional de Edificaciones), Norma G.050.",
             ofrecemos: `<ul>
@@ -221,7 +221,7 @@ export const servicesData = {
             titulo: "INSTALACIÓN DE SISTEMAS DE ALARMA Y DETECCIÓN DE INCENDIOS",
             subtitulo: "Instalación de sistemas de alarma y detección de incendios",
             descripcion: "Diseño e instalación de sistemas que garantizan la detección temprana y la protección eficaz de su infraestructura y personal.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182177/SERVICIOS_jlc0e3.png",
             descripcion_larga: "Implementamos sistemas de detección y alarma direccionables y convencionales, configurados a la medida de su operación. Nuestro enfoque en ingeniería garantiza la respuesta automática y la rápida evacuación, minimizando pérdidas.",
             normativa: "NFPA 72 (National Fire Protection Association), RNE (Norma A.130).",
             ofrecemos: `<ul>
@@ -241,7 +241,7 @@ export const servicesData = {
             titulo: "VENTA E INSTALACIÓN DE EQUIPOS EXTINTORES",
             subtitulo: "venta e instalación de equipos extintores",
             descripcion: "Suministro, venta e instalación estratégica de extintores certificados para el control inicial de incendios.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182323/extintores_i9kr55.png",
             descripcion_larga: "Aseguramos que su empresa cuente con la clase y capacidad de extintores adecuados, ubicados reglamentariamente y listos para ser usados. Incluimos la certificación, etiquetado y capacitación básica.",
             normativa: "NTP 350.043-1 (Extintores Portátiles), DS N° 002-2018-PCM.",
             ofrecemos: `<ul>
@@ -260,7 +260,7 @@ export const servicesData = {
             titulo: "MANTENIMIENTO Y CERTIFICACIÓN DE SISTEMAS DE AGUA CONTRA INCENDIOS",
             subtitulo: "Mantenimiento y certificación de sistemas de agua contra incendios",
             descripcion: "Mantenimiento preventivo y correctivo con certificación periódica para garantizar la operatividad al 100% de su Sistema ACI.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182476/a02a0928-e379-455c-8d20-d7049d9e0a95_cxcffy.png",
             descripcion_larga: "Realizamos pruebas funcionales, mantenimiento y calibración de bombas, redes de rociadores automáticos (sprinklers) y gabinetes. La certificación periódica es fundamental para su documentación de seguridad y asegura que su sistema esté siempre listo para actuar.",
             normativa: "NFPA 25 y 72 (Inspección, Pruebas y Mantenimiento de Sistemas de Protección contra Incendios a Base de Agua).",
             ofrecemos: `<ul>
@@ -279,7 +279,7 @@ export const servicesData = {
             titulo: "MANTENIMIENTO Y CERTIFICACIÓN PERIÓDICA DE SISTEMAS DE PUESTA A TIERRA",
             subtitulo: "Mantenimiento y certificación periódica de sistemas de puesta a tierra",
             descripcion: "Inspección, mantenimiento y certificación anual de sus pozos de puesta a tierra, protegiendo equipos y personal de sobretensiones.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182384/pozo_a_tierra_bvivhg.png",
             descripcion_larga: "Verificamos la resistencia de sus pozos a tierra, realizamos el tratamiento químico de mejoramiento y emitimos el protocolo de medición y certificación requerido por ley. Es clave para la seguridad eléctrica de su personal y la vida útil de su maquinaria.",
             normativa: "Código Nacional de Electricidad (Utilización), R.M. N° 180-2008-MEM.",
             ofrecemos: `<ul>
@@ -298,7 +298,7 @@ export const servicesData = {
             titulo: "MANTENIMIENTO Y REINGENIERÍA DE INSTALACIONES ELÉCTRICAS",
             subtitulo: "Mantenimiento y reingeniería de instalaciones eléctricas",
             descripcion: "Servicio integral de diagnóstico, mantenimiento predictivo/preventivo y optimización de sus sistemas eléctricos de baja y media tensión.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207333/5_dzyege.png",
             descripcion_larga: "Minimizamos el riesgo de fallas operativas, cortocircuitos e incendios. Realizamos reingeniería de sistemas de distribución, tableros y subestaciones para asegurar la adecuación a normativas y la máxima eficiencia energética.",
             normativa: "Código Nacional de Electricidad (Utilización y Suministro).",
             ofrecemos: `<ul>
@@ -319,7 +319,7 @@ export const servicesData = {
             titulo: "OBTENCIÓN DE LICENCIA DE FUNCIONAMIENTO",
             subtitulo: "Gestión de Licencia Municipal de Funcionamiento",
             descripcion: "Garantice la legalidad y operatividad inmediata de su empresa en el norte peruano con la gestión acelerada de su Licencia Municipal.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182558/licencia_de_funcionamiento_yqrkiv.png",
             descripcion_larga: "Servicio de consultoría y gestión integral para la obtención de la Licencia de Funcionamiento Municipal. Nos encargamos de la revisión de planos, la adecuación de la documentación y la presentación ante las autoridades locales. Agilizamos el proceso para que su sede inicie operaciones rápidamente, minimizando el riesgo de paralizaciones o multas por incumplimiento.",
             normativa: "Ley N° 28976 (Ley Marco de Licencia de Funcionamiento) y normas municipales específicas de la jurisdicción.",
             ofrecemos: `<ul>
@@ -338,7 +338,7 @@ export const servicesData = {
             titulo: "OBTENCIÓN DE CERTIFICADO ITSE",
             subtitulo: "Certificación ITSE y cumplimiento de Defensa Civil",
             descripcion: "Asesoría integral para obtener su Certificado de Defensa Civil de forma rápida y eficiente, asegurando la seguridad y el cumplimiento legal.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182805/certificado_itse_ujmdek.jpg",
             descripcion_larga: "Brindamos consultoría multidisciplinaria para que sus instalaciones pasen la Inspección Técnica de Seguridad en Edificaciones (ITSE), requisito indispensable para la operatividad de su local. Trabajamos en la preparación documental, la adecuación de sus espacios, sistemas y la representación durante la inspección, garantizando la conformidad.",
             normativa: "DS N° 002-2018-PCM (Reglamento de ITSE), Ley N° 28976 y normativa sectorial.",
             ofrecemos: `<ul>
@@ -357,7 +357,7 @@ export const servicesData = {
             titulo: "LEVANTAMIENTO INTEGRAL DE OBSERVACIONES ITSE",
             subtitulo: "Subsanación y aprobación final de inspecciones ITSE",
             descripcion: "Resuelva el 100% de las observaciones de su inspección ITSE y obtenga el certificado sin demoras.",
-            imagen: [foto1],
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207200/levantamiento_observaciones_z1i5cb.png",
             descripcion_larga: "Servicio multidisciplinario diseñado para empresas con procesos ITSE pendientes. Valorizamos y ejecutamos las subsanaciones requeridas (obra civil, estructuras, instalaciones eléctricas, etc.) con un único proveedor. Nuestro objetivo es garantizar la aprobación final de la Inspección.",
             normativa: "DS N° 002-2018-PCM, NFPA, NTP, RNE y Código Nacional Eléctrico.",
             ofrecemos: `<ul>

@@ -13,7 +13,7 @@ import heroImage from '../assets/BannerSection.jpeg'
 const NARANJA = '#f0813e'
 const BORDE_FORM = '#283655'
 const BORDE_INPUT = '#ccc'
-const LABEL_COLOR = '#333'
+const LABEL_COLOR = '#22346C'
 const PLACEHOLDER_COLOR = '#aaa'
 
 const inputSx = {
@@ -44,6 +44,7 @@ export const Contacto = () => {
       newErrors.correo = 'Correo electrónico no válido'
     }
     if (!form.celular.trim()) newErrors.celular = 'Ingresa tu celular'
+    else if (!/^\d{9}$/.test(form.celular)) newErrors.celular = 'Debe tener 9 dígitos'
     if (!form.mensaje.trim()) newErrors.mensaje = 'Escribe tu mensaje'
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -51,7 +52,12 @@ export const Contacto = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
+    let nextValue = value
+    if (name === 'celular') {
+      const soloNumeros = value.replace(/\D/g, '').slice(0, 9)
+      nextValue = soloNumeros
+    }
+    setForm((prev) => ({ ...prev, [name]: nextValue }))
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }))
     if (status) setStatus(null)
   }
@@ -136,7 +142,7 @@ export const Contacto = () => {
             }}
           >
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="nombres" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem' }}>
+              <Typography component="label" htmlFor="nombres" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600  }}>
                 Nombres
               </Typography>
               <TextField
@@ -154,7 +160,7 @@ export const Contacto = () => {
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="correo" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem' }}>
+              <Typography component="label" htmlFor="correo" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
                 Correo electrónico
               </Typography>
               <TextField
@@ -173,7 +179,7 @@ export const Contacto = () => {
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="celular" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem' }}>
+              <Typography component="label" htmlFor="celular" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
                 Celular
               </Typography>
               <TextField
@@ -187,11 +193,13 @@ export const Contacto = () => {
                 helperText={errors.celular}
                 variant="outlined"
                 size="medium"
+                type="tel"
+                inputProps={{ maxLength: 9, inputMode: 'numeric', pattern: '[0-9]*' }}
                 sx={inputSx}
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="mensaje" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem' }}>
+              <Typography component="label" htmlFor="mensaje" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
                 Mensaje
               </Typography>
               <TextField

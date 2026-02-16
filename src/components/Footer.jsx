@@ -55,7 +55,7 @@ export const Footer = () => {
                             <b>📞 Teléfono:</b>  905 767 434 – 977 652 430
                         </Typography>
                         <Typography variant="body2">
-                            <b>📧 Correo:</b> operaciones@segurycons.com
+                            <b>📧 Correo:</b> ventas@segurycons.com
                         </Typography>
                         <Typography variant="body2">
                             <b>📱 WhatsApp:</b>  +51 987 654 321
@@ -127,7 +127,7 @@ export const Footer = () => {
                 }}
             >
                 <Typography variant="body2" sx={{ color: "primary.main", fontWeight: 700, fontSize: { xs: "12px" } }}>
-                    © 2025 SEGURYCONS. Todos los derechos reservados.
+                    © 2026 SEGURYCONS. Todos los derechos reservados.
                 </Typography>
             </Box>
         </Box>

@@ -32,22 +32,26 @@ export const CardsServices = ({
                                 }
                             }}
                         >
-                            {showImage && (
-                                <Box
-                                    sx={{
-                                        bgcolor: '#e8e8e8',
-                                        borderRadius: 1,
-                                        width: '100%',
-                                        paddingBottom: '60%',
-                                        position: 'relative',
-                                        mb: 2,
-                                        backgroundImage: servicio.imagen && servicio.imagen[0] ? `url(${servicio.imagen[0]})` : 'none',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        backgroundRepeat: 'no-repeat'
-                                    }}
-                                />
-                            )}
+                            {showImage && (() => {
+                                const imgSrc = Array.isArray(servicio.imagen) ? servicio.imagen[0] : servicio.imagen;
+                                const url = typeof imgSrc === 'string' ? imgSrc : (imgSrc?.default ?? imgSrc);
+                                return (
+                                    <Box
+                                        sx={{
+                                            bgcolor: '#e8e8e8',
+                                            borderRadius: 1,
+                                            width: '100%',
+                                            paddingBottom: '60%',
+                                            position: 'relative',
+                                            mb: 2,
+                                            backgroundImage: url ? `url(${url})` : 'none',
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
+                                            backgroundRepeat: 'no-repeat'
+                                        }}
+                                    />
+                                );
+                            })()}
                             <Typography
                                 variant="subtitle1"
                                 sx={{

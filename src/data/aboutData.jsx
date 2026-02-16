@@ -39,17 +39,17 @@ export const aboutData = {
   ],
   equipo: [
     {
-      img: nosotrosImg,
+      img: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182323/extintores_i9kr55.png",
       title: 'Ingeniería en Seguridad y Arquitectura: ',
       description: 'Diseño de seguridad a la medida.'
     },
     {
-      img: nosotrosImg,
+      img: "https://res.cloudinary.com/douhx9fvy/image/upload/v1770952657/REGULARIZACI%C3%93N_DE_OBRAS_kbnkdu.jpg",
       title: 'Operaciones:',
       description: 'Resultados efectivos, en tiempo y forma.'
     },
     {
-      img: nosotrosImg,
+      img: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182928/LEVANTAMIENTO_itse_auzgge.jpg",
       title: 'Equipo de Mantenimiento: ',
       description: 'Capataces y Técnicos. Fiabilidad operativa a largo plazo.'
     },

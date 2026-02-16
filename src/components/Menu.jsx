@@ -11,45 +11,62 @@ import {
 import React from "react";
 import { Link as RouterLink } from "react-router";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { servicesData } from "../data/servicesData";
 
-const servicios = [
-  {
-    titulo: "Consultoría, expediente y trámite de LF + ITSE",
-    descripcion: [
-      { texto: "Gestionamos Licencias de Funcionamiento y Certificados ITSE", to: "/lf-itse/licencias" },
-      { texto: "Consultorías de Seguridad en Edificaciones (ISO, NFPA, NTP, CNE...)", to: "/lf-itse/consultorias" },
-      { texto: "Gestión de expediente ITSE hasta la obtención del certificado", to: "/lf-itse/expediente" },
-    ],
-  },
-  {
-    titulo: "Mantenimiento, Instalación y Levantamientos",
-    descripcion: [
-      { texto: "Venta e instalación de equipos extintores", to: "/mantenimiento/extintores" },
-      { texto: "Instalación de sistemas DACI (Alarmas Contra Incendio)", to: "/mantenimiento/daci" },
-      { texto: "Mantenimiento y certificación de sistemas ACI", to: "/mantenimiento/aci" },
-      { texto: "Instalación de sistemas de puesta a tierra", to: "/mantenimiento/puesta-a-tierra" },
-      { texto: "Mantenimiento de instalaciones eléctricas", to: "/mantenimiento/electricas" },
-      { texto: "Levantamiento de Observaciones ITSE", to: "/mantenimiento/observaciones" },
-    ],
-  },
-  {
-    titulo: "Gestiones Municipales y Estatales Varias",
-    descripcion: [
-      { texto: "Autorizaciones Municipales Publicitarias", to: "/gestiones/publicitarias" },
-      { texto: "Certificaciones Catastrales, Zonificación, Compatibilidad de uso, etc.", to: "/gestiones/certificaciones" },
-      { texto: "Declaratorias de Fábrica", to: "/gestiones/declaratorias" },
-    ],
-  },
+// Construir 3 columnas desde servicesData (4 grupos repartidos en 3 columnas)
+const menuColumnas = [
+  // Columna 1: CONSULTORÍA Y CUMPLIMIENTO
+  [
+    {
+      titulo: "CONSULTORÍA Y CUMPLIMIENTO",
+      items: servicesData.consultoria.map((s) => ({
+        texto: s.subtitulo || s.titulo,
+        to: `/consultoria/${s.slug}`,
+      })),
+    },
+  ],
+  // Columna 2: INGENIERÍA Y MANTENIMIENTO + SERVICE OPERATIVO Y SUBCONTRATACIÓN
+  [
+    {
+      titulo: "INGENIERÍA Y MANTENIMIENTO",
+      items: servicesData.mantenimiento.map((s) => ({
+        texto: s.subtitulo || s.titulo,
+        to: `/mantenimiento/${s.slug}`,
+      })),
+    },
+    
+  ],
+  // Columna 3: GESTIONES MUNICIPALES Y ESTATALES
+  [
+    {
+      titulo: "GESTIONES MUNICIPALES Y ESTATALES",
+      items: servicesData.servicios.slice(5, 10).map((s) => ({
+        texto: s.subtitulo || s.titulo,
+        to: `/servicios/${s.slug}`,
+      })),
+    },
+  ],
+  [
+    {
+      titulo: "SERVICE OPERATIVO Y SUBCONTRATACIÓN",
+      items: servicesData.servicios.slice(0, 5).map((s) => ({
+        texto: s.subtitulo || s.titulo,
+        to: `/servicios/${s.slug}`,
+      })),
+    },
+  ]
 ];
 
-// Bloque de una columna para desktop
-const ColumnBlock = ({ servicio }) => (
+// Bloque de una sección (título + lista de enlaces) para desktop
+const ColumnBlock = ({ block }) => (
   <Box
     sx={{
       borderLeft: "3px solid",
       borderColor: "orange.main",
       pl: 2,
       pr: 1,
+      mb: 3,
+      "&:last-of-type": { mb: 0 },
       "&:hover": { borderColor: "rgba(242,135,55,0.9)" },
       borderRadius: "none !important",
     }}
@@ -65,10 +82,10 @@ const ColumnBlock = ({ servicio }) => (
         lineHeight: 1.3,
       }}
     >
-      {servicio.titulo.toUpperCase()}
+      {block.titulo}
     </Typography>
     <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
-      {servicio.descripcion.map((item, j) => (
+      {block.items.map((item, j) => (
         <Box component="li" key={j} sx={{ mb: 2 }}>
           <MuiLink
             component={RouterLink}
@@ -78,7 +95,6 @@ const ColumnBlock = ({ servicio }) => (
               textDecoration: "none",
               fontSize: "0.8rem",
               display: "block",
-
               transition: "color 0.2s ease",
               "&:hover": {
                 color: "orange.main",
@@ -93,6 +109,9 @@ const ColumnBlock = ({ servicio }) => (
   </Box>
 );
 
+// Todos los bloques en orden (para móvil)
+const todosLosBloques = menuColumnas.flat();
+
 export const Menu = ({ isMobile = false }) => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -101,7 +120,7 @@ export const Menu = ({ isMobile = false }) => {
   if (isMobile || isSmall) {
     return (
       <Box sx={{ width: "100%" }}>
-        {servicios.map((servicio, i) => (
+        {todosLosBloques.map((block, i) => (
           <Accordion
             key={i}
             disableGutters
@@ -109,14 +128,15 @@ export const Menu = ({ isMobile = false }) => {
             sx={{
               bgcolor: "transparent",
               "&:before": { display: "none" },
-              borderBottom: i < servicios.length - 1 ? "1px solid rgba(255,255,255,0.12)" : "none",
+              borderBottom:
+                i < todosLosBloques.length - 1
+                  ? "1px solid rgba(255,255,255,0.12)"
+                  : "none",
             }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: "orange.main" }} />}
-              sx={{
-                px: 0,
-              }}
+              sx={{ px: 0 }}
             >
               <Typography
                 sx={{
@@ -125,12 +145,12 @@ export const Menu = ({ isMobile = false }) => {
                   color: "primary.main",
                 }}
               >
-                {servicio.titulo}
+                {block.titulo}
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ pt: 0, pb: 0, px: 0 }}>
               <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
-                {servicio.descripcion.map((item, j) => (
+                {block.items.map((item, j) => (
                   <Box component="li" key={j} sx={{ mb: 1 }}>
                     <MuiLink
                       component={RouterLink}
@@ -140,7 +160,7 @@ export const Menu = ({ isMobile = false }) => {
                         textDecoration: "none",
                         fontSize: "0.7rem",
                         display: "block",
-                        "&:hover": { color: "orange.main" }
+                        "&:hover": { color: "orange.main" },
                       }}
                     >
                       {item.texto}
@@ -155,7 +175,7 @@ export const Menu = ({ isMobile = false }) => {
     );
   }
 
-  // Vista desktop: mega menú en una sola fila
+  // Vista desktop: 4 columnas
   return (
     <Box
       sx={{
@@ -179,7 +199,7 @@ export const Menu = ({ isMobile = false }) => {
           borderRadius: "none !important",
         }}
       >
-        {servicios.map((servicio, i) => (
+        {menuColumnas.map((columna, i) => (
           <Box
             key={i}
             sx={{
@@ -187,7 +207,9 @@ export const Menu = ({ isMobile = false }) => {
               minWidth: 0,
             }}
           >
-            <ColumnBlock servicio={servicio} />
+            {columna.map((block, j) => (
+              <ColumnBlock key={j} block={block} />
+            ))}
           </Box>
         ))}
       </Box>

@@ -58,12 +58,15 @@ export const Detalle = ({
         );
     }
 
-    // Crear items del carrusel con las imágenes del servicio
-    const items = servicio.imagen?.map(img => ({ image: img })) || [
-        { image: foto },
-        { image: foto },
-        { image: foto }
-    ];
+    // Crear items del carrusel: imagen puede ser string (URL) o array de imágenes
+    const imagenes = Array.isArray(servicio.imagen) ? servicio.imagen : (servicio.imagen ? [servicio.imagen] : []);
+    const items = imagenes.length > 0
+        ? imagenes.map(img => ({ image: img }))
+        : [
+            { image: foto },
+            { image: foto },
+            { image: foto }
+        ];
 
     // Función para cambiar slide desde los puntos de navegación
     const handleSlideChange = (index) => {
