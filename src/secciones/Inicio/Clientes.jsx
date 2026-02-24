@@ -7,43 +7,43 @@ import { useRef, useState } from "react";
 import OrangeLine from "../../components/OrangeLine";
 
 // Datos de testimonios
-const testimonios = [
-    {
-        id: 1,
-        nombre: "Juan Carlos Pérez",
-        empresa: "Constructora ABC",
-        testimonio: "Excelente servicio en la certificación ITSE. El equipo profesional y la rapidez en los procesos nos permitió abrir a tiempo.",
-        imagen: foto,
-    },
-    {
-        id: 2,
-        nombre: "María García",
-        empresa: "Edificios Modernos SAC",
-        testimonio: "La asesoría en seguridad ha sido fundamental para nuestros proyectos. Profesionales altamente capacitados.",
-        imagen: foto,
-    },
-    {
-        id: 3,
-        nombre: "Carlos Rodriguez",
-        empresa: "Inversiones del Sur",
-        testimonio: "Confiamos en Segurycons para todos nuestros certificados. Su experiencia y conocimiento nos da total tranquilidad.",
-        imagen: foto,
-    },
-    {
-        id: 4,
-        nombre: "Ana López",
-        empresa: "Retail Plaza",
-        testimonio: "El acompañamiento durante todo el proceso de licencias ha sido excepcional. Recomiendo totalmente sus servicios.",
-        imagen: foto,
-    },
-];
+// const testimonios = [
+//     {
+//         id: 1,
+//         nombre: "Juan Carlos Pérez",
+//         empresa: "Constructora ABC",
+//         testimonio: "Excelente servicio en la certificación ITSE. El equipo profesional y la rapidez en los procesos nos permitió abrir a tiempo.",
+//         imagen: foto,
+//     },
+//     {
+//         id: 2,
+//         nombre: "María García",
+//         empresa: "Edificios Modernos SAC",
+//         testimonio: "La asesoría en seguridad ha sido fundamental para nuestros proyectos. Profesionales altamente capacitados.",
+//         imagen: foto,
+//     },
+//     {
+//         id: 3,
+//         nombre: "Carlos Rodriguez",
+//         empresa: "Inversiones del Sur",
+//         testimonio: "Confiamos en Segurycons para todos nuestros certificados. Su experiencia y conocimiento nos da total tranquilidad.",
+//         imagen: foto,
+//     },
+//     {
+//         id: 4,
+//         nombre: "Ana López",
+//         empresa: "Retail Plaza",
+//         testimonio: "El acompañamiento durante todo el proceso de licencias ha sido excepcional. Recomiendo totalmente sus servicios.",
+//         imagen: foto,
+//     },
+// ];
 
 export const Clientes = () => {
     const sliderWrapperRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
 
     // Array de logos (puedes agregar más logos diferentes aquí)
-    const logos = [logo1, logo1, logo1, logo1, logo1, logo1];
+    const logos = ["https://res.cloudinary.com/douhx9fvy/image/upload/v1771911945/reniec-rem_fy23dx.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911942/colegiodeing-rem_alkl6d.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911958/ecosac_gfc4ej.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911956/clinicasanjuan_mpol8c.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911954/RANSA_kim88d.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911954/incamotors-rem_ngleni.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911949/cobrarem_jzyxef.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911948/santaisabel-rem_nb6okl.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911948/cipca-rem_xk5dg7.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911947/ava-rem_g5zgn1.png", "https://res.cloudinary.com/douhx9fvy/image/upload/v1771911942/manuchar-rem_oybr0s.png"];
 
     // 🔹 Animación continua suave
     const marquee = keyframes`
@@ -52,10 +52,10 @@ export const Clientes = () => {
     `;
 
     // Agrupar testimonios de 2 en 2
-    const testimoniosPairs = [];
-    for (let i = 0; i < testimonios.length; i += 2) {
-        testimoniosPairs.push(testimonios.slice(i, i + 2));
-    }
+    // const testimoniosPairs = [];
+    // for (let i = 0; i < testimonios.length; i += 2) {
+    //     testimoniosPairs.push(testimonios.slice(i, i + 2));
+    // }
 
     // Función para navegar en el carrusel de testimonios
     const goToPrev = () => {
@@ -75,7 +75,6 @@ export const Clientes = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                maxWidth: "1500px",
                 backgroundColor: 'background.default',
                 width: "100%",
                 
@@ -107,6 +106,7 @@ export const Clientes = () => {
                     maskRepeat: "no-repeat",
                     maskSize: "100% 100%",
                     height: 100,
+                    maxWidth: "1500px",
                     display: "flex",
                     alignItems: "center",
                     position: "relative",
@@ -116,22 +116,23 @@ export const Clientes = () => {
                 <Box
                     sx={{
                         display: "flex",
-                        animation: `${marquee} 25s linear infinite`,
+                        animation: `${marquee} 45s linear infinite`,
                         width: "fit-content",
                     }}
                 >
                     {/* Renderizar múltiples sets para continuidad total */}
                     {[...Array(4)].map((_, setIndex) => (
                         <Box key={setIndex} sx={{ display: "flex", gap: 6, pr: 6 }}>
-                            {logos.map((logo, logoIndex) => (
+                            {logos.map((logos, logoIndex) => (
                                 <Box
                                     key={`${setIndex}-${logoIndex}`}
                                     component="img"
-                                    src={logo}
+                                    src={logos}
                                     sx={{
                                         width: { xs: 150, md: 200 },
                                         height: "auto",
-                                        flexShrink: 0
+                                        flexShrink: 0,
+                                        objectFit: 'contain',
                                     }}
                                 />
                             ))}
@@ -139,7 +140,7 @@ export const Clientes = () => {
                     ))}
                 </Box>
             </Box>
-
+{/* 
             <Box
                 component="section"
                 sx={{
@@ -178,9 +179,9 @@ export const Clientes = () => {
                             pr: { xs: 4, md: 5 }, 
                             pb: 4 
                         }}>
-                            {/* Carrusel de testimonios */}
+                            {/* Carrusel de testimonios 
                             <Box sx={{ position: 'relative', width: '100%' }}>
-                                {/* Línea naranja centrada específicamente en el carrusel - FUERA del overflow hidden */}
+                                {/* Línea naranja centrada específicamente en el carrusel - FUERA del overflow hidden 
                                 <Box sx={{ 
                                     position: 'absolute',
                                     top: '41.2%',
@@ -206,7 +207,7 @@ export const Clientes = () => {
                                     />
                                 </Box>
 
-                                {/* Container del carrusel */}
+                                {/* Container del carrusel 
                                 <Box sx={{ 
                                     overflow: 'hidden', 
                                     borderRadius: 2,
@@ -283,7 +284,7 @@ export const Clientes = () => {
                                     </Box>
                                 </Box>
 
-                                {/* Flechas de navegación centradas abajo */}
+                                {/* Flechas de navegación centradas abajo 
                                 <Box sx={{ 
                                     zIndex: 1,
                                     display: 'flex', 
@@ -332,7 +333,7 @@ export const Clientes = () => {
                         </Box>
                     </Grid>
                 </Grid>
-            </Box>
+            </Box> */}
         </Box>
     );
 };

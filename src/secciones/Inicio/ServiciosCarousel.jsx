@@ -3,6 +3,20 @@ import { Box, Typography, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import MUICarousel from '../../components/MUICarousel';
+import { servicesData } from '../../data/servicesData';
+
+// Todos los servicios (servicios + mantenimiento + consultoría) para el carrusel
+const carouselItems = [
+  ...servicesData.servicios,
+  ...servicesData.mantenimiento,
+  ...servicesData.consultoria,
+].map((s) => ({
+  id: s.id,
+  title: s.titulo,
+  description: s.descripcion,
+  imagen: s.imagen,
+  slug: s.slug,
+}));
 
 // Componente para cada slide del carrusel de servicios
 const ServiceSlide = ({ item }) => {
@@ -11,7 +25,8 @@ const ServiceSlide = ({ item }) => {
       px: 1,
       height: '100%',
       display: 'flex',
-      alignItems: 'stretch'
+      alignItems: 'stretch',
+      mb: 1,
     }}>
       <Box
         sx={{
@@ -23,7 +38,6 @@ const ServiceSlide = ({ item }) => {
           flexDirection: 'column',
           transition: 'all 0.3s ease',
           width: '100%',
-          
           position: 'relative',
           '&:hover': {
             transform: 'translateY(-4px)',
@@ -31,16 +45,32 @@ const ServiceSlide = ({ item }) => {
           }
         }}
       >
-        <Box 
-          sx={{
-            bgcolor: '#e8e8e8',
-            borderRadius: 1,
-            width: '100%',
-            paddingBottom: '60%',
-            position: 'relative',
-            mb: 2
-          }}
-        />
+        {item.imagen ? (
+          <Box
+            component="img"
+            src={item.imagen}
+            alt={item.title}
+            sx={{
+              borderRadius: 1,
+              width: '100%',
+              aspectRatio: '16/10',
+              objectFit: 'cover',
+              mb: 2,
+              display: 'block',
+            }}
+          />
+        ) : (
+          <Box
+            sx={{
+              bgcolor: '#e8e8e8',
+              borderRadius: 1,
+              width: '100%',
+              paddingBottom: '60%',
+              position: 'relative',
+              mb: 2,
+            }}
+          />
+        )}
         <Typography
           variant="subtitle1"
           sx={{
@@ -58,7 +88,7 @@ const ServiceSlide = ({ item }) => {
           variant="body2"
           sx={{
             color: 'text.secondary',
-            mb: 2,
+            mb: 1,
             flex: 1,
           }}
         >
@@ -82,26 +112,6 @@ const ServiceSlide = ({ item }) => {
     </Box>
   );
 };
-
-const sampleItems = [
-  {
-    title: 'INSTALACIÓN, MEDICIÓN Y CERTIFICACIÓN DE POZOS A TIERRA',
-    description:
-      'Instalación de un sistema de puesta a tierra, mediciones periódicas y protocolo de certificación profesional.',
-  },
-  {
-    title: 'INSTALACIÓN DE SISTEMAS DE ALARMA Y DETECCIÓN DE INCENDIOS',
-    description: 'Instalación de equipos certificados de detección y notificación rápida a usuarios.',
-  },
-  {
-    title: 'MANTENIMIENTO Y CERTIFICACION DE SISTEMAS DE AGUA CONTRA INCENDIOS',
-    description: 'Mantenimiento y certificación profesional de todos los componentes del sistema.',
-  },
-  {
-    title: 'SERVICIO ADICIONAL DE SEGURIDAD',
-    description: 'Mantenimiento y certificación profesional de todos los componentes del sistema.',
-  },
-];
 
 export const ServiciosCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -134,8 +144,8 @@ export const ServiciosCarousel = () => {
   // Crear grupos de items para cada slide
   const createSlideGroups = () => {
     const groups = [];
-    for (let i = 0; i < sampleItems.length; i += itemsPerSlide) {
-      groups.push(sampleItems.slice(i, i + itemsPerSlide));
+    for (let i = 0; i < carouselItems.length; i += itemsPerSlide) {
+      groups.push(carouselItems.slice(i, i + itemsPerSlide));
     }
     return groups;
   };
@@ -163,10 +173,12 @@ export const ServiciosCarousel = () => {
       component="section"
       sx={{ 
         width: '100%',
-        height: {xs:'560px',  md: '550px', lg: '500px'},
+        height: '100%',
         py: 4,
         px: { xs: 3, sm: 10, md: 6 },
         bgcolor: 'common.white',
+        position: 'relative',
+        zIndex: 0,
       }}
     >
       <Typography 
@@ -186,7 +198,6 @@ export const ServiciosCarousel = () => {
         sx={{ 
           width: '95%',
           maxWidth: '1200px',
-          height: { xs: '400px', md: 'auto' },
           mx: 'auto',
           position: 'relative',
           px: { xs: 0, md: 5 },
@@ -200,10 +211,8 @@ export const ServiciosCarousel = () => {
           controlledSlide={currentSlide}
           onSlideChange={setCurrentSlide}
           sx={{
-            height: {xs: '400px', lg: '430px', md: '400px' },
-            '& > div': {
-              height: '100%'
-            }
+            height: '100%'
+          
           }}
         >
           {slideGroups.map((group, slideIndex) => (

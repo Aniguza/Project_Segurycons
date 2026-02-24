@@ -16,19 +16,19 @@ const items = [
         title: "Confiable",
         description:
             "Los profesionales acreditados brindan seguridad y confianza en cada asesoría y proyecto.",
-        image: foto,
+        image: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771912357/2_ov7efg.png",
     },
     {
         title: "Profesional",
         description:
             "Equipo especializado que garantiza calidad en la ejecución de cada trabajo.",
-        image: foto,
+        image: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771912280/3_p6rpnq.png",
     },
     {
         title: "Innovador",
         description:
             "Aplicamos soluciones modernas y efectivas adaptadas a cada necesidad.",
-        image: foto,
+        image: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771912437/1_ezffqn.png",
     },
 ];
 
@@ -42,11 +42,12 @@ const CarouselSlide = ({ item }) => {
             alignItems: 'center',
             justifyContent: 'center',
             p: 2,
-            height: { xs: '100%', md: '260px' }
+            height: { xs: '100%', sm: '95%', md: '260px' }
         }}>
             <Box sx={{
                 backgroundColor: 'primary.main',
                 padding: 3,
+                
                 height: { xs: '100%' },
                 width: '100%',
                 display: 'flex',
@@ -59,10 +60,11 @@ const CarouselSlide = ({ item }) => {
                     image={item.image}
                     alt={item.title}
                     sx={{
-                        width: { xs: '100%', md: '50%' },
-
+                        width: { xs: '80%',  md: '50%' },
+                        height: '100%',
                         objectFit: 'cover',
-                        flexShrink: 0
+                        flexShrink: 0,
+                        p: 1,
                     }}
                 />
                 <Box sx={{
@@ -127,9 +129,11 @@ export const Descripcion = () => {
                 mx: 'auto',
                 width: '100%',
                 bgcolor: 'common.white',
+                position: 'relative',
+                zIndex: 0,
             }}
         >
-            <Grid container spacing={2} sx={{ flexGrow: 1, backgroundColor: '#fff', maxWidth: '1200px', height: { xs: 'auto', sm: '450px' } }}>
+            <Grid container spacing={1} sx={{ flexGrow: 1, backgroundColor: '#fff', maxWidth: '1200px', height: 'auto' }}>
                 <Grid size={{ xs: 12, sm: 6 }} sx={{ p: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 0 } }}>
                         <Typography
@@ -157,7 +161,7 @@ export const Descripcion = () => {
                                 infinite: true
                             }}
                             sx={{
-                                height: { xs: '350px', md: 'auto' },
+                                height: { xs: '350px', sm: '370px', md: 'auto' },
 
                             }}
                             controlledSlide={currentSlide}

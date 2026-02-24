@@ -100,7 +100,16 @@ export const Navbar = () => {
   ];
 
   return (
-    <AppBar position="fixed" color="inherit" elevation={0}>
+    <AppBar
+      position="fixed"
+      color="inherit"
+      elevation={0}
+      sx={{
+        zIndex: 1300,
+        bgcolor: 'background.paper',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+      }}
+    >
       <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: { xs: 1, md: 3 } }}>
         {/* Logo */}
         <Box
