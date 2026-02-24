@@ -1,0 +1,2 @@
+# Redirigir todas las rutas al index.html para que React Router las maneje (SPA)
+/*    /index.html   200
