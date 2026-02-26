@@ -16,8 +16,6 @@ export const Nosotros = () => {
       <Descripcion data={aboutData}/>
       <Experiencia data={aboutData}/>
       <Mivi data={aboutData}/>
-      <Equipo data={aboutData}/>
-      <Normativas data={aboutData}/>
     </Box>
   );
 };
