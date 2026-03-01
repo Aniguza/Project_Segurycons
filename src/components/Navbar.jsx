@@ -24,11 +24,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assets/Logo.png";
 
-// Función para crear estilos de link con estado activo
+// Función para crear estilos de link con estado activo (tamaño y espaciado responsivos)
 const getLinkStyles = (isActive) => ({
   color: isActive ? "orange.main" : "primary.main",
   fontWeight: "700",
-  fontSize: "1.1rem",
+  fontSize: { md: "0.9rem", lg: "1rem" },
   textDecoration: "none",
   position: "relative",
   "&:hover": {
@@ -63,6 +63,9 @@ export const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isXl = useMediaQuery(theme.breakpoints.up("xl"));
+  const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+  const chevronSize = isXl ? 20 : isLg ? 18 : 16;
   const location = useLocation();
 
   // Función para determinar si un link está activo
@@ -108,13 +111,16 @@ export const Navbar = () => {
         zIndex: 1300,
         bgcolor: 'background.paper',
         boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+        height: { xs: 60, md: 80, lg: 90 },
+        display: "flex",
+        justifyContent: "center",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 4 }, py: { xs: 1, md: 3 } }}>
+      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 3, lg: 4 }, py: { xs: 1, md: 1.5, lg: 2, xl: 3 }, gap: 2 }}>
         {/* Logo */}
         <Box
 
-          sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 120, sm: 140, md: 220 }, marginLeft: { xs: 2, sm: 5, md: 6 } }}
+          sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 100, sm: 115, md: 150, lg: 170, xl: 190 }, marginLeft: { xs: 2, sm: 5, lg: 1, xl: 8 } }}
           component="a"
           href="/"
         >
@@ -127,7 +133,7 @@ export const Navbar = () => {
 
         {/* Links en pantallas grandes */}
         {isDesktop && (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 8, mr: 10 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: { md: 3, lg: 5, xl: 8 }, mr: { md: 2, lg: 5, xl: 10 } }}>
             {/* Primer item = Qué hacemos con Popover */}
             <Box
               onMouseEnter={handlePopoverOpen}
@@ -142,10 +148,10 @@ export const Navbar = () => {
                   alignItems: "center",
                   gap: 0.5,
                   fontWeight: "700",
-                  fontSize: "1.1rem",
+                  fontSize: { md: "0.9rem", lg: "1rem"  },
                 }}
               >
-                Qué hacemos <ChevronDown size={18} style={{ flexShrink: 0 }} />
+                Qué hacemos <ChevronDown size={chevronSize} style={{ flexShrink: 0 }} />
               </Typography>
               <Popover
                 open={open}

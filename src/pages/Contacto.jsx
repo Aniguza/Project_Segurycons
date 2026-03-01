@@ -22,6 +22,19 @@ const inputSx = {
     '& fieldset': { borderColor: BORDE_INPUT },
     '&:hover fieldset': { borderColor: '#999' },
     '&.Mui-focused fieldset': { borderColor: BORDE_FORM, borderWidth: '1px' },
+    height: { xs: '50px', md: '60px' },
+    fontSize: { xs: '0.9rem', md: '1rem' }
+  },
+  '& .MuiInputBase-input::placeholder': { color: PLACEHOLDER_COLOR, opacity: 1 },
+}
+
+const inputSxarea = {
+  '& .MuiOutlinedInput-root': {
+    bgcolor: '#fff',
+    '& fieldset': { borderColor: BORDE_INPUT },
+    '&:hover fieldset': { borderColor: '#999' },
+    '&.Mui-focused fieldset': { borderColor: BORDE_FORM, borderWidth: '1px' }, 
+    fontSize: { xs: '0.9rem', md: '1rem' }
   },
   '& .MuiInputBase-input::placeholder': { color: PLACEHOLDER_COLOR, opacity: 1 },
 }
@@ -62,15 +75,26 @@ export const Contacto = () => {
     if (status) setStatus(null)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return
     setStatus('sending')
-    // Simular envío; aquí conectarías con tu API o servicio de correo
-    setTimeout(() => {
-      setStatus('success')
-      setForm({ nombres: '', correo: '', celular: '', mensaje: '' })
-    }, 1200)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (res.ok) {
+        setStatus('success')
+        setForm({ nombres: '', correo: '', celular: '', mensaje: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -82,7 +106,7 @@ export const Contacto = () => {
         sx={{
           maxWidth: 1200,
           mx: 'auto',
-          px: { xs: 2, sm: 3 },
+          px: { xs: 3, md: 5 },
           py: { xs: 4, md: 5 },
         }}
       >
@@ -91,7 +115,7 @@ export const Contacto = () => {
             color: 'primary.main',
             fontFamily: 'Century Gothic, Arial, sans-serif',
             fontWeight: 700,
-            fontSize: '1.1rem',
+            fontSize: { xs: '0.8rem', md: '1.1rem' },
             lineHeight: 1.6,
             mb: 4,
             textAlign: 'justify',
@@ -142,7 +166,7 @@ export const Contacto = () => {
             }}
           >
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="nombres" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600  }}>
+              <Typography component="label" htmlFor="nombres" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: { xs: '0.9rem', md: '1rem' }, fontWeight: 600  }}>
                 Nombres
               </Typography>
               <TextField
@@ -160,7 +184,7 @@ export const Contacto = () => {
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="correo" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
+              <Typography component="label" htmlFor="correo" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: { xs: '0.9rem', md: '1rem' }, fontWeight: 600 }}>
                 Correo electrónico
               </Typography>
               <TextField
@@ -179,7 +203,7 @@ export const Contacto = () => {
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="celular" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
+              <Typography component="label" htmlFor="celular" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: { xs: '0.9rem', md: '1rem' }, fontWeight: 600 }}>
                 Celular
               </Typography>
               <TextField
@@ -199,7 +223,7 @@ export const Contacto = () => {
               />
             </Box>
             <Box sx={{ mb: 2.5 }}>
-              <Typography component="label" htmlFor="mensaje" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: '1rem', fontWeight: 600 }}>
+              <Typography component="label" htmlFor="mensaje" sx={{ display: 'block', color: LABEL_COLOR, mb: 1, fontSize: { xs: '0.9rem', md: '1rem' }, fontWeight: 600 }}>
                 Mensaje
               </Typography>
               <TextField
@@ -215,7 +239,7 @@ export const Contacto = () => {
                 minRows={4}
                 variant="outlined"
                 size="medium"
-                sx={inputSx}
+                sx={inputSxarea}
               />
             </Box>
             {status === 'success' && (
