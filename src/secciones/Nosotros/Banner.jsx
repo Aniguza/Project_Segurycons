@@ -3,6 +3,6 @@ import { BannerSections } from '../../components/BannerSections';
 
 export const Banner = ({ data }) => {
     return (
-        <BannerSections data={data} />
+        <BannerSections data={data} serviceType="nosotros" />
     );
 };

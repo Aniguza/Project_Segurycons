@@ -10,6 +10,8 @@ export const BannerSections = ({ data, serviceType = "servicios" }) => {
         switch (serviceType) {
             case "mantenimiento":
                 return "Mantenimiento";
+            case "nosotros":
+                return "Nosotros";
             case "consultoria":
                 return "Consultoría";
             case "contacto":

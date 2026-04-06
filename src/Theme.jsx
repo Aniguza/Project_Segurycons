@@ -6,14 +6,14 @@ const theme = createTheme({
     primary: {
       main: "#30456F", // azul oscuro
     },
-    secondary: {
-      main: "#A30000", // rojo
-    },
-    background: {
-      default: "#F5F5F5", // fondo gris claro
-    },
     orange: {
       main: "#F28737", // naranja primario
+    },
+    secondary2: {
+      main: "#A30000", // amarillo oscuro
+    },
+    background: {
+      default: "#F5F5F5", // fondo gris claros
     },
     common: {
       white: "#FFFFFF",

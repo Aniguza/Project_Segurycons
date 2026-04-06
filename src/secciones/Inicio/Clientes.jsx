@@ -105,7 +105,10 @@ export const Clientes = () => {
                         "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
                     maskRepeat: "no-repeat",
                     maskSize: "100% 100%",
-                    height: 100,
+                    borderTop: '4px solid',
+                    borderColor: 'secondary2.main',
+                    pt: 3,
+                    height: 180,
                     maxWidth: "1500px",
                     display: "flex",
                     alignItems: "center",
@@ -200,7 +203,7 @@ export const Clientes = () => {
                                         strokeWidth={4}      // Grosor de la línea
                                                   // Ancho del SVG controlado
                                         height={420}         // Altura del SVG en píxeles (mucho más grande)
-                                        color="#A30000"
+                                        color="orange.main"
                                         maintainAspect={false} // No mantener proporciones para controlar mejor el ancho
                                         scrub={2}           // Velocidad de animación (más alto = más lento)
                                         scrollLength={200}  // Longitud del scroll para completar la animación

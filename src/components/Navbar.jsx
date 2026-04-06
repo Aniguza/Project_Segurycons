@@ -119,7 +119,6 @@ export const Navbar = () => {
       <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 3, lg: 4 }, py: { xs: 1, md: 1.5, lg: 2, xl: 3 }, gap: 2 }}>
         {/* Logo */}
         <Box
-
           sx={{ display: "flex", alignItems: "center", ml: { xs: 0, md: 2 }, width: { xs: 100, sm: 115, md: 150, lg: 170, xl: 190 }, marginLeft: { xs: 2, sm: 5, lg: 1, xl: 8 } }}
           component="a"
           href="/"
@@ -167,7 +166,7 @@ export const Navbar = () => {
                     onMouseEnter: () => setHovered(true),
                     onMouseLeave: handlePopoverClose,
                     sx: {
-                      mt: 4.5,
+                      mt: 4.3,
                       left: "0px !important",
                       right: "0px !important",
                       width: "100vw",

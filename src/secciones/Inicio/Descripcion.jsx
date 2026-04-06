@@ -138,10 +138,19 @@ export const Descripcion = () => {
                     <Box sx={{ width: "90%", textAlign: "justify", pl: { xs: 0, md: 0 } }}>
                         <Typography
                             variant="h6"
-                            sx={{ fontWeight: "bold", color: "primary.main", mb: 2 }}
+                            sx={{ fontWeight: "bold", color: "primary.main", mb: 1.5 }}
                         >
                             POSICIONAMIENTO
                         </Typography>
+                        <Box
+                            sx={{
+                                width: 60,
+                                height: 4,
+                                bgcolor: 'secondary2.main',
+                                borderRadius: 9999,
+                                mb: 2,
+                            }}
+                        />
                         <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5 }}>
                             En Segurycons somos especialistas en seguridad en edificaciones. Te acompañamos en la obtención de Licencias de Funcionamiento y Certificados ITSE, SST, y levantamientos de observaciones. Con el respaldo de un equipo acreditado en normativas nacionales e internacionales.
                         </Typography>
@@ -215,7 +224,7 @@ export const Descripcion = () => {
                             }}>
                                 <OrangeLine 
                                     strokeWidth={9}      // Grosor de la línea (puedes cambiarlo: 2, 4, 6, 8, etc.)
-                                    stroke="primary.main"
+                                    stroke="orange.main"
                                          // Ancho del SVG en píxeles
                                     height={315}         // Altura del SVG en píxeles (más corto)
                                     scrub={30}           // Velocidad de animación (más alto = más lento)

@@ -97,12 +97,13 @@ const ServiceSlide = ({ item }) => {
         <Typography
           component="span"
           sx={{
-            color: 'error.main',
+            color: 'secondary2.main',
             fontSize: '0.875rem',
             fontWeight: 600,
             cursor: 'pointer',
             '&:hover': {
-              textDecoration: 'underline'
+              textDecoration: 'underline',
+              color: 'secondary2.main'
             }
           }}
         >
@@ -259,8 +260,8 @@ export const ServiciosCarousel = () => {
                 height: { xs: 30, sm: 35, md: 40 },
                 zIndex: 3,
                 '&:hover': { 
-                  bgcolor: 'rgba(255, 107, 53, 0.1)',
-                  borderColor: 'orange.dark'
+                  bgcolor: 'orange.main',
+                  color: 'common.white'
                 },
               }}
             >
@@ -281,8 +282,8 @@ export const ServiciosCarousel = () => {
                 height: { xs: 30, sm: 35, md: 40 },
                 zIndex: 3,
                 '&:hover': { 
-                  bgcolor: 'rgba(255, 107, 53, 0.1)',
-                  borderColor: 'orange.dark'
+                  bgcolor: 'orange.main',
+                  color: 'common.white'
                 },
               }}
             >
