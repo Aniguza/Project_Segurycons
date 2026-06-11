@@ -35,11 +35,33 @@ export const Detalle = ({
     bannerData,
     serviceType = "servicios",
     buttonText = "COTIZA TU INSTALACIÓN",
-    buttonLink = "/contacto",
+    buttonLink,
     textoFinal
 }) => {
     const sliderWrapperRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    const gmailLink = (() => {
+        if (buttonLink?.startsWith('http')) return buttonLink;
+
+        const email = 'ventas@segurycons.com';
+        const subject = servicio?.titulo
+            ? `Consulta: ${servicio.titulo}`
+            : 'Consulta SEGURYCONS';
+        const body = servicio?.titulo
+            ? `Hola, me interesa obtener más información sobre ${servicio.titulo}.\n\n`
+            : '';
+
+        const params = [
+            'view=cm',
+            'fs=1',
+            `to=${encodeURIComponent(email)}`,
+            `su=${encodeURIComponent(subject)}`,
+            `body=${encodeURIComponent(body)}`,
+        ].join('&');
+
+        return `https://mail.google.com/mail/?${params}`;
+    })();
 
     // Si no se encuentra el servicio, mostrar mensaje de error
     if (!servicio) {
@@ -116,7 +138,7 @@ export const Detalle = ({
                                 </Box>
                             )}
                             <Box sx={{ width: "100%" }}>
-                                <Button component={Link} to={buttonLink} sx={{ mt: 2, px: 4, py: 1.5, fontWeight: 'bold', bgcolor: 'secondary.main', color: 'white', borderRadius: 0, '&:hover': { bgcolor: 'secondary.dark' } }}>
+                                <Button component="a" href={gmailLink} target="_blank" rel="noopener noreferrer" sx={{ mt: 2, px: 4, py: 1.5, fontWeight: 'bold', bgcolor: 'secondary2.main', color: 'white', borderRadius: 0, textDecoration: 'none', '&:hover': { bgcolor: 'secondary.dark' } }}>
                                     <Typography sx={{ display: "flex", gap: 1, fontWeight: 700 }}>
                                         <MdMailOutline size={25} /> {buttonText}
                                     </Typography>

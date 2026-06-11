@@ -20,7 +20,6 @@ export const DetallesServicios = () => {
             bannerData={servicio}
             serviceType="servicios"
             buttonText="COTIZA TU INSTALACIÓN"
-            buttonLink="/contacto"
             textoFinal={textoFinal}
         />
     )

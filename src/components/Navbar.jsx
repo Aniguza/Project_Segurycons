@@ -99,7 +99,7 @@ export const Navbar = () => {
     { to: "/consultoria", label: "Consultoría" },
     { to: "/mantenimiento", label: "Mantenimiento" },
     { to: "/servicios", label: "Servicios" },
-    { to: "/contacto", label: "Contacto" },
+    // { to: "/contacto", label: "Contacto" },
   ];
 
   return (

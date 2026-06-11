@@ -20,7 +20,6 @@ export const DetalleConsultoria = () => {
             servicio={consultoria}
             bannerData={consultoria}
             buttonText="AGENDA TU CONSULTA"
-            buttonLink="/contacto"
             textoFinal={textoFinal}
         />
     )

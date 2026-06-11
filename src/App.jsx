@@ -34,7 +34,7 @@ export default function App() {
             <Route path="/mantenimiento/:slug" element={<DetalleMantenimiento />} />
             <Route path="/consultoria" element={<Consultoria />} />
             <Route path="/consultoria/:slug" element={<DetalleConsultoria />} />
-            <Route path="/contacto" element={<Contacto />} />
+            {/* <Route path="/contacto" element={<Contacto />} /> */}
           </Routes>
         </Box>
         <Footer />

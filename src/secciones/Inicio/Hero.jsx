@@ -32,6 +32,7 @@ export const Hero = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: { xs: 'column', md: 'row' },
         gap: 5,
         backgroundImage: `url(${HERO_BG})`,
         backgroundSize: 'cover',
@@ -50,6 +51,7 @@ export const Hero = () => {
           bottom: 0,
           height: { xs: '34%', sm: '32%', md: '75%' },
           minHeight: { xs: 128, md: 168 },
+          
           zIndex: 1,
           pointerEvents: 'none',
           lineHeight: 0,
@@ -195,7 +197,7 @@ export const Hero = () => {
         sx={{
           top: 0,
           right: 0,
-          height: '100%',
+          height: { xs: '0%', md: '100%' },
           zIndex: 3,
           display: 'flex',
           alignItems: 'flex-end',

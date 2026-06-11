@@ -19,7 +19,6 @@ export const DetalleMantenimiento = () => {
             bannerData={mantenimiento}
             serviceType="mantenimiento"
             buttonText="SOLICITA TU COTIZACIÓN"
-            buttonLink="/contacto"
             textoFinal={textoFinal}
         />
     )
