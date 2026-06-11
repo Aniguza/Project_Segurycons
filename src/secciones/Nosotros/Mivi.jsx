@@ -20,7 +20,7 @@ export const Mivi = ({data}) => {
                 {data.valores.map((item, i) => (
                     <Box 
                         key={i}
-                        sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: { xs: 2, lg: 4 }, backgroundColor: 'secondary.main', padding: { xs: 3, md: 4 }, minHeight: { xs: '250px', sm: '290px', lg: '400px' }, height: '100%', minWidth: { xs: '200px', md: '270px', lg: '300px' }, width: '100%', color: 'white', border: '7px solid #F28737',
+                        sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: { xs: 2, lg: 4 }, backgroundColor: 'secondary2.main', padding: { xs: 3, md: 4 }, minHeight: { xs: '250px', sm: '290px', lg: '400px' }, height: '100%', minWidth: { xs: '200px', md: '270px', lg: '300px' }, width: '100%', color: 'white', border: '7px solid #F28737',
                             position: 'relative', '&::before': { content: "''", position: 'absolute', top: -2, right: -2, bottom: -2, left: -2, border: '5px solid' }, 
                             '& svg': { width: { xs: '40px', md: '50px' }, height: { xs: '40px', md: '50px' } }
                          }}

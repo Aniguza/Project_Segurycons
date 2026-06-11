@@ -65,12 +65,12 @@ export const BannerSections = ({ data, serviceType = "servicios" }) => {
                 <Typography
                     variant="subtitle1"
                     sx={{
-                        color: 'secondary2.main',
+                        color: 'primary.main',
                         maxWidth: 1900,
                         fontWeight: 700,
                         fontSize: { xs: 25, sm: 35, md: 40, lg: 50},
                         textAlign: 'center',
-                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)',
                     }}
                 >
                     {displayTitle}
