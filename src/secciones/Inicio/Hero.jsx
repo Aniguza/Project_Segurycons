@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -7,6 +6,30 @@ import foto from '../../assets/personaje.png';
 
 const HERO_BG = 'https://res.cloudinary.com/douhx9fvy/image/upload/v1772993274/fondobanner_hl5lxj.png';
 const HERO_PERSONAJE = foto;
+const GMAIL_LINK = (() => {
+  const email = 'ventas@segurycons.com';
+  const subject = 'Consulta SEGURYCONS';
+  const body = [
+    'Hola, me gustaría recibir más información sobre los servicios de SEGURYCONS.',
+    '',
+    'Nombre:',
+    'Empresa:',
+    'Teléfono:',
+    'servicio de interes:',
+    'Mensaje:',
+    '',
+  ].join('\n');
+
+  const params = [
+    'view=cm',
+    'fs=1',
+    `to=${encodeURIComponent(email)}`,
+    `su=${encodeURIComponent(subject)}`,
+    `body=${encodeURIComponent(body)}`,
+  ].join('&');
+
+  return `https://mail.google.com/mail/?${params}`;
+})();
 
 const fadeInUp = keyframes`
   0% { opacity: 0; transform: translateY(24px); }
@@ -14,14 +37,6 @@ const fadeInUp = keyframes`
 `;
 
 export const Hero = () => {
-  const navigate = useNavigate();
-
-  const handleCta = () => {
-    const contact = document.getElementById('contacto') ?? document.querySelector('[data-section="contacto"]');
-    if (contact) contact.scrollIntoView({ behavior: 'smooth' });
-    else navigate('/contacto');
-  };
-
   return (
     <Box
       sx={{
@@ -152,9 +167,12 @@ export const Hero = () => {
         </Typography>
 
         <Button
+          component="a"
+          href={GMAIL_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
           variant="contained"
           size="large"
-          onClick={handleCta}
           sx={{
             mt: { xs: 2.5, md: 3.5 },
             px: { xs: 2.5, md: 3.5 },
