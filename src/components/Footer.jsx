@@ -4,10 +4,9 @@ import { Box, Grid, Typography, Button, Link, getAppBarUtilityClass } from "@mui
 import { FiFacebook } from "react-icons/fi";
 import { FiInstagram } from "react-icons/fi";
 import { FiLinkedin } from "react-icons/fi";
-
+import { FaWhatsapp } from "react-icons/fa";
 
 import logo from "../assets/Logo-bn.png"; // Asegúrate de tener un logo en esta ruta
-import { BorderAll } from "@mui/icons-material";
 
 export const Footer = () => {
     return (
@@ -105,6 +104,13 @@ export const Footer = () => {
                             rel="noopener" 
                             aria-label="LinkedIn">
                                 <FiLinkedin />
+                            </Link>
+                            <Link 
+                            href="https://wa.me/51977652439" 
+                            target="_blank" 
+                            rel="noopener" 
+                            aria-label="WhatsApp">
+                                <FaWhatsapp />
                             </Link>
                         </Box>
                     </Grid>

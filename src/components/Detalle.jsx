@@ -44,7 +44,7 @@ export const Detalle = ({
     const gmailLink = (() => {
         if (buttonLink?.startsWith('http')) return buttonLink;
 
-        const email = 'ventas@segurycons.com';
+        const email = 'operaciones@segurycons.com';
         const subject = servicio?.titulo
             ? `Consulta: ${servicio.titulo}`
             : 'Consulta SEGURYCONS';

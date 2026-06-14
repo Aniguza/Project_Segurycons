@@ -7,7 +7,7 @@ import foto from '../../assets/personaje.png';
 const HERO_BG = 'https://res.cloudinary.com/douhx9fvy/image/upload/v1772993274/fondobanner_hl5lxj.png';
 const HERO_PERSONAJE = foto;
 const GMAIL_LINK = (() => {
-  const email = 'ventas@segurycons.com';
+  const email = 'operaciones@segurycons.com';
   const subject = 'Consulta SEGURYCONS';
   const body = [
     'Hola, me gustaría recibir más información sobre los servicios de SEGURYCONS.',
