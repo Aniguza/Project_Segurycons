@@ -7,9 +7,9 @@ import { servicesData } from '../../data/servicesData';
 
 // Todos los servicios (servicios + mantenimiento + consultoría) para el carrusel
 const carouselItems = [
-  ...servicesData.servicios,
-  ...servicesData.mantenimiento,
   ...servicesData.consultoria,
+  ...servicesData.mantenimiento,
+  ...servicesData.servicios,
 ].map((s) => ({
   id: s.id,
   title: s.titulo,

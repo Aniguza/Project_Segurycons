@@ -49,16 +49,10 @@ export const Footer = () => {
                             Contacto
                         </Typography>
                         <Typography variant="body2">
-                            <b>📍 Dirección:</b>  A.h once de abril MZ C4 lt 09
+                            <b>📞 Teléfono:</b>  +51 977 652 439
                         </Typography>
                         <Typography variant="body2">
-                            <b>📞 Teléfono:</b>  905 767 434 – 977 652 430
-                        </Typography>
-                        <Typography variant="body2">
-                            <b>📧 Correo:</b> ventas@segurycons.com
-                        </Typography>
-                        <Typography variant="body2">
-                            <b>📱 WhatsApp:</b>  +51 987 654 321
+                            <b>📧 Correo:</b> operaciones@segurycons.com
                         </Typography>
                     </Grid>
 

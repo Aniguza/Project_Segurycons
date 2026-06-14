@@ -3,6 +3,65 @@ import foto1 from '../assets/NosoDes.png';
 
 export const servicesData = {
     titulo: "Servicios",
+    consultoria: [
+        {
+            id: 1,
+            slug: "obtencion-de-licencia-de-funcionamiento",
+            titulo: "OBTENCIÓN DE LICENCIA DE FUNCIONAMIENTO",
+            subtitulo: "Gestión de Licencia Municipal de Funcionamiento",
+            descripcion: "Garantice la legalidad y operatividad inmediata de su empresa en el norte peruano con la gestión acelerada de su Licencia Municipal.",
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182558/licencia_de_funcionamiento_yqrkiv.png",
+            descripcion_larga: "Servicio de consultoría y gestión integral para la obtención de la Licencia de Funcionamiento Municipal. Nos encargamos de la revisión de planos, la adecuación de la documentación y la presentación ante las autoridades locales. Agilizamos el proceso para que su sede inicie operaciones rápidamente, minimizando el riesgo de paralizaciones o multas por incumplimiento.",
+            normativa: "Ley N° 28976 (Ley Marco de Licencia de Funcionamiento) y normas municipales específicas de la jurisdicción.",
+            ofrecemos: `<ul>
+                <li>Revisión y diagnóstico de requisitos.</li>
+                <li>Elaboración y visado de planos de distribución y seguridad.</li>
+                <li>Gestión directa del expediente ante la Municipalidad.</li>
+            </ul>`,
+            beneficios: `<ul>
+                <li><b>Continuidad Garantizada:</b> Evite costosos cierres, multas y sanciones administrativas.</li>
+                <li><b>Apertura Rápida:</b> Reducción drástica en los tiempos de tramitación.</li>
+            </ul>`
+        },
+        {
+            id: 2,
+            slug: "obtencion-de-certificado-itse",
+            titulo: "OBTENCIÓN DE CERTIFICADO ITSE",
+            subtitulo: "Certificación ITSE y cumplimiento de Defensa Civil",
+            descripcion: "Asesoría integral para obtener su Certificado de Defensa Civil de forma rápida y eficiente, asegurando la seguridad y el cumplimiento legal.",
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182805/certificado_itse_ujmdek.jpg",
+            descripcion_larga: "Brindamos consultoría multidisciplinaria para que sus instalaciones pasen la Inspección Técnica de Seguridad en Edificaciones (ITSE), requisito indispensable para la operatividad de su local. Trabajamos en la preparación documental, la adecuación de sus espacios, sistemas y la representación durante la inspección, garantizando la conformidad.",
+            normativa: "DS N° 002-2018-PCM (Reglamento de ITSE), Ley N° 28976 y normativa sectorial.",
+            ofrecemos: `<ul>
+                <li>Elaboración del Plan de Seguridad y Evacuación.</li>
+                <li>Revisión de protocolos de seguridad y aforos.</li>
+                <li>Acompañamiento técnico durante la inspección.</li>
+            </ul>`,
+            beneficios: `<ul>
+                <li><b>Certificación Obligatoria:</b> Cumplimiento total para evitar revocatoria de licencias.</li>
+                <li><b>Seguridad Total:</b> Protección certificada para empleados y visitantes.</li>
+            </ul>`
+        },
+        {
+            id: 3,
+            slug: "levantamiento-integral-de-observaciones-itse",
+            titulo: "LEVANTAMIENTO INTEGRAL DE OBSERVACIONES ITSE",
+            subtitulo: "Subsanación y aprobación final de inspecciones ITSE",
+            descripcion: "Resuelva el 100% de las observaciones de su inspección ITSE y obtenga el certificado sin demoras.",
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207200/levantamiento_observaciones_z1i5cb.png",
+            descripcion_larga: "Servicio multidisciplinario diseñado para empresas con procesos ITSE pendientes. Valorizamos y ejecutamos las subsanaciones requeridas (obra civil, estructuras, instalaciones eléctricas, etc.) con un único proveedor. Nuestro objetivo es garantizar la aprobación final de la Inspección.",
+            normativa: "DS N° 002-2018-PCM, NFPA, NTP, RNE y Código Nacional Eléctrico.",
+            ofrecemos: `<ul>
+                <li>Valorización y presupuestado de las correcciones.</li>
+                <li>Ejecución de modificaciones de albañilería, eléctricas o de seguridad.</li>
+                <li>Presentación del cargo de subsanación.</li>
+            </ul>`,
+            beneficios: `<ul>
+                <li><b>Aprobación Garantizada:</b> Expertise técnica para asegurar el visto bueno final.</li>
+                <li><b>Ahorro de Tiempo:</b> Un solo equipo ejecuta todos los rubros.</li>
+            </ul>`
+        }
+    ],
     servicios: [
         {
             id: 1,
@@ -310,66 +369,6 @@ export const servicesData = {
                 <li><b>Ahorro:</b> Optimización de la eficiencia energética.</li>
             </ul>`
         }
-
     ],
-    consultoria: [
-        {
-            id: 1,
-            slug: "obtencion-de-licencia-de-funcionamiento",
-            titulo: "OBTENCIÓN DE LICENCIA DE FUNCIONAMIENTO",
-            subtitulo: "Gestión de Licencia Municipal de Funcionamiento",
-            descripcion: "Garantice la legalidad y operatividad inmediata de su empresa en el norte peruano con la gestión acelerada de su Licencia Municipal.",
-            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182558/licencia_de_funcionamiento_yqrkiv.png",
-            descripcion_larga: "Servicio de consultoría y gestión integral para la obtención de la Licencia de Funcionamiento Municipal. Nos encargamos de la revisión de planos, la adecuación de la documentación y la presentación ante las autoridades locales. Agilizamos el proceso para que su sede inicie operaciones rápidamente, minimizando el riesgo de paralizaciones o multas por incumplimiento.",
-            normativa: "Ley N° 28976 (Ley Marco de Licencia de Funcionamiento) y normas municipales específicas de la jurisdicción.",
-            ofrecemos: `<ul>
-                <li>Revisión y diagnóstico de requisitos.</li>
-                <li>Elaboración y visado de planos de distribución y seguridad.</li>
-                <li>Gestión directa del expediente ante la Municipalidad.</li>
-            </ul>`,
-            beneficios: `<ul>
-                <li><b>Continuidad Garantizada:</b> Evite costosos cierres, multas y sanciones administrativas.</li>
-                <li><b>Apertura Rápida:</b> Reducción drástica en los tiempos de tramitación.</li>
-            </ul>`
-        },
-        {
-            id: 2,
-            slug: "obtencion-de-certificado-itse",
-            titulo: "OBTENCIÓN DE CERTIFICADO ITSE",
-            subtitulo: "Certificación ITSE y cumplimiento de Defensa Civil",
-            descripcion: "Asesoría integral para obtener su Certificado de Defensa Civil de forma rápida y eficiente, asegurando la seguridad y el cumplimiento legal.",
-            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182805/certificado_itse_ujmdek.jpg",
-            descripcion_larga: "Brindamos consultoría multidisciplinaria para que sus instalaciones pasen la Inspección Técnica de Seguridad en Edificaciones (ITSE), requisito indispensable para la operatividad de su local. Trabajamos en la preparación documental, la adecuación de sus espacios, sistemas y la representación durante la inspección, garantizando la conformidad.",
-            normativa: "DS N° 002-2018-PCM (Reglamento de ITSE), Ley N° 28976 y normativa sectorial.",
-            ofrecemos: `<ul>
-                <li>Elaboración del Plan de Seguridad y Evacuación.</li>
-                <li>Revisión de protocolos de seguridad y aforos.</li>
-                <li>Acompañamiento técnico durante la inspección.</li>
-            </ul>`,
-            beneficios: `<ul>
-                <li><b>Certificación Obligatoria:</b> Cumplimiento total para evitar revocatoria de licencias.</li>
-                <li><b>Seguridad Total:</b> Protección certificada para empleados y visitantes.</li>
-            </ul>`
-        },
-        {
-            id: 3,
-            slug: "levantamiento-integral-de-observaciones-itse",
-            titulo: "LEVANTAMIENTO INTEGRAL DE OBSERVACIONES ITSE",
-            subtitulo: "Subsanación y aprobación final de inspecciones ITSE",
-            descripcion: "Resuelva el 100% de las observaciones de su inspección ITSE y obtenga el certificado sin demoras.",
-            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771207200/levantamiento_observaciones_z1i5cb.png",
-            descripcion_larga: "Servicio multidisciplinario diseñado para empresas con procesos ITSE pendientes. Valorizamos y ejecutamos las subsanaciones requeridas (obra civil, estructuras, instalaciones eléctricas, etc.) con un único proveedor. Nuestro objetivo es garantizar la aprobación final de la Inspección.",
-            normativa: "DS N° 002-2018-PCM, NFPA, NTP, RNE y Código Nacional Eléctrico.",
-            ofrecemos: `<ul>
-                <li>Valorización y presupuestado de las correcciones.</li>
-                <li>Ejecución de modificaciones de albañilería, eléctricas o de seguridad.</li>
-                <li>Presentación del cargo de subsanación.</li>
-            </ul>`,
-            beneficios: `<ul>
-                <li><b>Aprobación Garantizada:</b> Expertise técnica para asegurar el visto bueno final.</li>
-                <li><b>Ahorro de Tiempo:</b> Un solo equipo ejecuta todos los rubros.</li>
-            </ul>`
-        }
-
-    ]
+    
 }
