@@ -108,7 +108,7 @@ export const Clientes = () => {
                     borderTop: '4px solid',
                     borderColor: 'secondary2.main',
                     pt: 3,
-                    height: 180,
+                    height: { xs: 130, md: 150, lg: 180 },
                     maxWidth: "1500px",
                     display: "flex",
                     alignItems: "center",

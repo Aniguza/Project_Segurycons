@@ -9,7 +9,7 @@ export const Descripcion = ({ data }) => {
         <Box sx={{ width: '100%', padding: { xs: 3, sm: 5 }, display: 'flex', justifyContent: 'center', bgcolor: 'common.white' }}>
             <Grid container spacing={2} sx={{ bgcolor: 'background.default', maxWidth: 1200 }}> 
                 <Grid size={{ xs: 12, sm: 7 }} sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="body1" sx={{ textAlign: 'justify', color: 'primary.main', padding: { xs: 3, sm: 5 }, fontSize: { xs: '10px', sm: '12px', md: '16px' } }}>
+                    <Typography variant="body1" sx={{ textAlign: 'justify', color: 'primary.main', padding: { xs: 3, sm: 5 }, fontSize: { xs: '12px', sm: '12px', md: '16px' } }}>
                         {data.descripcion}
                     </Typography>
                 </Grid>

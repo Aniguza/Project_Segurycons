@@ -12,7 +12,7 @@ export const Experiencia = ({data}) => {
             </Typography>
             <Grid container spacing={2} sx={{ maxWidth: 1200, color: 'primary.main' }}>
                 <Grid size={{ xs: 12, sm: 6 }} sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="body1" sx={{ textAlign: 'justify', padding: { xs: 2, sm: 5 }, fontSize: { xs: '10px', sm: '12px', md: '16px' }, whiteSpace: "pre-line" }}>
+                    <Typography variant="body1" sx={{ textAlign: 'justify', padding: { xs: 2, sm: 5 }, fontSize: { xs: '12px', sm: '12px', md: '16px' }, whiteSpace: "pre-line" }}>
                         {data.experiencia}
                     </Typography>
                 </Grid>

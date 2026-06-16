@@ -24,11 +24,10 @@ export const Mivi = ({data}) => {
                             position: 'relative', '&::before': { content: "''", position: 'absolute', top: -2, right: -2, bottom: -2, left: -2, border: '5px solid' }, 
                             '& svg': { width: { xs: '40px', md: '50px' }, height: { xs: '40px', md: '50px' } }
                          }}
-                        
                     >
                         {item.icon}
-                        <Typography variant="h3" sx={{fontSize: {xs: '1rem', lg: '1.5rem'}}}>{item.title}</Typography>
-                        <Typography variant="body2" sx={{fontSize: {xs: '0.7rem', lg: '1rem'}}}>{item.description}</Typography>
+                        <Typography variant="h3" sx={{fontSize: {xs: '1.1rem', lg: '1.5rem'}}}>{item.title}</Typography>
+                        <Typography variant="body2" sx={{fontSize: {xs: '0.75rem', lg: '1rem'}}}>{item.description}</Typography>
                     </Box>
                 ))}
             </Box>

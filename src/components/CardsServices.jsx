@@ -71,6 +71,7 @@ export const CardsServices = ({
                                     color: 'text.secondary',
                                     mb: 2,
                                     flex: 1,
+                                    fontSize: { xs: '0.75rem', md: '1rem' },
                                 }}
                             >
                                 {servicio.descripcion }
@@ -80,7 +81,7 @@ export const CardsServices = ({
                                 to={`${linkPath}/${servicio.slug || servicio.id}`}
                                 sx={{
                                     color: 'error.main',
-                                    fontSize: '0.875rem',
+                                    fontSize: { xs: '0.75rem', md: '0.9rem' },
                                     fontWeight: 600,
                                     cursor: 'pointer',
                                     textDecoration: 'none',

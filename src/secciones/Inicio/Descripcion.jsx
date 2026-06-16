@@ -36,35 +36,37 @@ const items = [
 const CarouselSlide = ({ item }) => {
     return (
         <Box sx={{
-
             width: '100%',
+            height: '100%',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            p: 2,
-            height: { xs: '100%', sm: '95%', md: '260px' }
+            alignItems: 'stretch',
+            p: { xs: 0, sm: 1, md: 2 },
         }}>
             <Box sx={{
                 backgroundColor: 'primary.main',
-                padding: 3,
-                
-                height: { xs: '100%' },
+                p: { xs: 3, sm: 3, md: 3 },
+                height: '100%',
+                minHeight: { md: 260 },
                 width: '100%',
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: { xs: 'stretch', md: 'center' },
                 flexDirection: { xs: 'column', md: 'row' },
-                gap: 2
+                gap: { xs: 1.5, md: 2 },
+                overflow: 'hidden',
             }}>
                 <CardMedia
                     component="img"
                     image={item.image}
                     alt={item.title}
                     sx={{
-                        width: { xs: '80%',  md: '50%' },
-                        height: '100%',
+                        width: { xs: '100%', md: '50%' },
+                        height: { xs: 'auto', md: '100%' },
+                        minHeight: { md: 220 },
+                        maxHeight: { xs: 200, sm: 220, md: 'none' },
+                        aspectRatio: { xs: '4/3', md: 'auto' },
                         objectFit: 'cover',
                         flexShrink: 0,
-                        p: 1,
+                        display: 'block',
                     }}
                 />
                 <Box sx={{
@@ -72,21 +74,19 @@ const CarouselSlide = ({ item }) => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    alignItems: 'flex-start',
-                    textAlign: 'left',
-                    height: '100%',
-                    pl: { xs: 1, md: 3 },
-
+                    alignItems: { xs: 'center', md: 'flex-start' },
+                    textAlign: { xs: 'center', md: 'left' },
+                    minWidth: 0,
+                    pl: { md: 3 },
                 }}>
                     <Typography
                         variant="body2"
-
                         sx={{
                             fontWeight: 'bold',
                             color: 'white',
                             mb: 1,
-                            fontSize: { xs: '1.2rem', md: '1.5rem' },
-                            textAlign: 'center',
+                            fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.5rem' },
+                            textAlign: { xs: 'center', md: 'left' },
                         }}
                     >
                         {item.title}
@@ -95,9 +95,9 @@ const CarouselSlide = ({ item }) => {
                         variant="body2"
                         sx={{
                             color: 'white',
-                            lineHeight: 1.4,
-                            fontSize: { xs: '0.8rem', md: '0.9rem' },
-                            mb: 2,
+                            lineHeight: 1.5,
+                            fontSize: { xs: '0.875rem', sm: '0.9rem', md: '0.95rem' },
+                            mb: { xs: 0, md: 2 },
                             width: '100%',
                             textAlign: { xs: 'center', md: 'left' },
                         }}
@@ -127,6 +127,7 @@ export const Descripcion = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 mx: 'auto',
+                py: { xs: 3, md: 4 },
                 width: '100%',
                 bgcolor: 'common.white',
                 position: 'relative',
@@ -151,86 +152,90 @@ export const Descripcion = () => {
                                 mb: 2,
                             }}
                         />
-                        <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5 }}>
+                        <Typography variant="body1" sx={{ color: "primary.main", lineHeight: 1.5, fontSize: { xs: '0.8rem', md: '1rem' } }}>
                             En Segurycons somos especialistas en seguridad en edificaciones. Te acompañamos en la obtención de Licencias de Funcionamiento y Certificados ITSE, SST, y levantamientos de observaciones. Con el respaldo de un equipo acreditado en normativas nacionales e internacionales.
                         </Typography>
                     </Box>
 
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }} >{/* Línea naranja encima del carrusel */}
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: "100%", height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 4, md: 5 }, pb: 4, position: 'relative' }}>
+                <Grid size={{ xs: 12, sm: 6 }} >{/* Línea naranja encima del carrusel */}
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '100%', pt: { xs: 0, md: 4 }, px: { xs: 5, sm: 3, md: 5 }, pb: { xs: 3, md: 4 }, position: 'relative' }}>
 
                         {/* Contenedor del carrusel con posición relativa */}
-                        <Box sx={{ position: 'relative' }}>
-                            <MUICarousel
-                            settings={{
-                                autoplay: true,
-                                autoplaySpeed: 3000,
-                                infinite: true
-                            }}
-                            sx={{
-                                height: { xs: '350px', sm: '370px', md: 'auto' },
-
-                            }}
-                            controlledSlide={currentSlide}
-                            onSlideChange={setCurrentSlide}
-                        >
-                            {items.map((item, index) => (
-                                <CarouselSlide key={index} item={item} />
-                            ))}
-                        </MUICarousel>
-
-                        {/* Puntos de navegación fuera del carrusel */}
-                        <Box sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            gap: 1,
-                            pr: 2
-                        }}>
-                            {items.map((_, index) => (
-                                <Box
-                                    key={index}
-                                    onClick={() => handleSlideChange(index)}
-                                    sx={{
-                                        width: 10,
-                                        height: 10,
-                                        borderRadius: '50%',
-                                        backgroundColor: currentSlide === index ? 'primary.main' : '#cccccc',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.3s ease',
-                                        '&:hover': {
-                                            backgroundColor: currentSlide === index ? 'primary.main' : '#999999',
-                                            transform: 'scale(1.1)'
-                                        }
+                        <Box sx={{ position: 'relative', width: '100%' }}>
+                            <Box sx={{ position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+                                <MUICarousel
+                                    settings={{
+                                        autoplay: true,
+                                        autoplaySpeed: 3000,
+                                        infinite: true
                                     }}
-                                />
-                            ))}
-                        </Box>
+                                    sx={{
+                                        width: '100%',
+                                        minHeight: { md: 260 },
+                                    }}
+                                    controlledSlide={currentSlide}
+                                    onSlideChange={setCurrentSlide}
+                                >
+                                    {items.map((item, index) => (
+                                        <CarouselSlide key={index} item={item} />
+                                    ))}
+                                </MUICarousel>
+                            </Box>
 
-                            {/* Línea naranja centrada específicamente en el carrusel */}
-                            <Box sx={{ 
+                            {/* Línea naranja por encima del carrusel */}
+                            <Box sx={{
                                 position: 'absolute',
-                                top: '50.5%',
-                                left: '52.3%',
+                                top: '50.7%',
+                                left: '52%',
                                 transform: 'translate(-50%, -50%)',
                                 display: { md: 'flex', xs: 'none' },
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                width: '80%',
-                                height: '80%',
-                                pointerEvents: 'none', // Para que no interfiera con la interacción del carrusel
-                                zIndex: 2
+                                width: '88%',
+                                height: '115%',
+                                overflow: 'visible',
+                                pointerEvents: 'none',
+                                zIndex: 5,
                             }}>
-                                <OrangeLine 
-                                    strokeWidth={9}      // Grosor de la línea (puedes cambiarlo: 2, 4, 6, 8, etc.)
-                                    stroke="orange.main"
-                                         // Ancho del SVG en píxeles
-                                    height={315}         // Altura del SVG en píxeles (más corto)
-                                    scrub={30}           // Velocidad de animación (más alto = más lento)
-                                    scrollLength={100000}  // Longitud del scroll para completar la animación (más alto = más lento)
-                                    
+                                <OrangeLine
+                                    strokeWidth={9}
+                                    color="#F28737"
+                                    height={373}
+                                    scrub={30}
+                                    scrollLength={100000}
                                 />
+                            </Box>
+
+                            {/* Puntos de navegación */}
+                            <Box sx={{
+                                position: 'relative',
+                                zIndex: 6,
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                gap: 1,
+                                pr: 2,
+                                mt: { xs: 2, md: 0 },
+                            }}>
+                                {items.map((_, index) => (
+                                    <Box
+                                        key={index}
+                                        onClick={() => handleSlideChange(index)}
+                                        sx={{
+                                            width: 10,
+                                            height: 10,
+                                            borderRadius: '50%',
+                                            backgroundColor: currentSlide === index ? 'primary.main' : '#cccccc',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            '&:hover': {
+                                                backgroundColor: currentSlide === index ? 'primary.main' : '#999999',
+                                                transform: 'scale(1.1)',
+                                            },
+                                        }}
+                                    />
+                                ))}
                             </Box>
                         </Box>
                     </Box>

@@ -29,7 +29,7 @@ export const servicesData = {
             titulo: "OBTENCIÓN DE CERTIFICADO ITSE",
             subtitulo: "Certificación ITSE y cumplimiento de Defensa Civil",
             descripcion: "Asesoría integral para obtener su Certificado de Defensa Civil de forma rápida y eficiente, asegurando la seguridad y el cumplimiento legal.",
-            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1771182805/certificado_itse_ujmdek.jpg",
+            imagen: "https://res.cloudinary.com/douhx9fvy/image/upload/v1781576516/certificadoItse_ru5zpe.png",
             descripcion_larga: "Brindamos consultoría multidisciplinaria para que sus instalaciones pasen la Inspección Técnica de Seguridad en Edificaciones (ITSE), requisito indispensable para la operatividad de su local. Trabajamos en la preparación documental, la adecuación de sus espacios, sistemas y la representación durante la inspección, garantizando la conformidad.",
             normativa: "DS N° 002-2018-PCM (Reglamento de ITSE), Ley N° 28976 y normativa sectorial.",
             ofrecemos: `<ul>

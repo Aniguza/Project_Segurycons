@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { keyframes } from '@mui/material';
 import foto from '../../assets/personaje.png';
 
-const HERO_BG = 'https://res.cloudinary.com/douhx9fvy/image/upload/v1772993274/fondobanner_hl5lxj.png';
+const HERO_BG = 'https://res.cloudinary.com/douhx9fvy/image/upload/v1781575167/banner_xh8bpb.png';
 const HERO_PERSONAJE = foto;
 const GMAIL_LINK = (() => {
   const email = 'operaciones@segurycons.com';
@@ -46,85 +46,49 @@ export const Hero = () => {
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: { xs: 'column', md: 'row' },
+        justifyContent: 'start',
         gap: 5,
         backgroundImage: `url(${HERO_BG})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'start',
         overflow: 'hidden',
       }}
-    >
-
-      {/* Zona inferior blanca con borde ondulado naranja (como referencia de diseño) */}
-      <Box
-        aria-hidden
-        sx={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: { xs: '34%', sm: '32%', md: '75%' },
-          minHeight: { xs: 128, md: 168 },
-          
-          zIndex: 1,
-          pointerEvents: 'none',
-          lineHeight: 0,
-          overflow: 'visible',
-        }}
-      >
-        <Box
-          component="svg"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 100"
-          preserveAspectRatio="none"
-          sx={{
-            display: 'block',
-            width: '100%',
-            height: '100%',
-            overflow: 'visible',
-          }}
-        >
-          <path
-            fill="none"
-            stroke="#F28737"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M0,26 C10,27 200,56 920,25 C1300,22 1200,56 2000,55 L1200"
-          /> 
-          <path
-            fill="#ffffff"
-            d="M0,27 C10,27 200,53 900,25 C1300,22 1200,56 2000,55 L1200, 100 L0,100 Z"
-          />
-          
-        </Box>
-      </Box>
-      
+    >      
 
       {/* Contenido: título + descripción + botón a la izquierda */}
       <Box
         sx={{
           position: 'relative',
           zIndex: 2,
-          flex: 1,
-          pl: { xs: 3, sm: 6, md: 10 },
+          pl: { xs: 3, sm: 6, md: 15},
           pr: { xs: 2, sm: 4 },
           py: { xs: 6, md: 0 },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          maxWidth: 780,
+          width: { xs: 340, sm: 500, md: 700, lg: 900 },
           height: '100%',
+          isolation: 'isolate',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: { xs: -12, sm: -24, md: -48 },
+            right: { xs: -16, sm: -32, md: -64 },
+            zIndex: -1,
+            background: 'linear-gradient(to right, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.42) 55%, transparent 100%)',
+            pointerEvents: 'none',
+          },
         }}
       >
-      
-        
         {/* Frase grande (título) - blanco, bold, varias líneas */}
         <Box
           component="h1"
           sx={{
+            position: 'relative',
+            zIndex: 1,
             m: 0,
             animation: `${fadeInUp} 0.8s ease-out forwards`,
             opacity: 0,
@@ -137,7 +101,7 @@ export const Hero = () => {
             component="span"
             sx={{
               display: 'block',
-              fontSize: { xs: '1.5rem', sm: '2rem', md: '2.75rem', lg: '3.5rem' },
+              fontSize: { xs: '1.63rem', sm: '2rem', md: '2.75rem', lg: '3.5rem' },
               fontWeight: 700,
               color: 'common.white',
               textShadow: '0 2px 12px rgba(0,0,0,0.4)',
@@ -153,11 +117,13 @@ export const Hero = () => {
         <Typography
           variant="subtitle1"
           sx={{
-            color: 'grey.800',
-            mt: { xs: 2, md: 10},
-            maxWidth: 560,
+            position: 'relative',
+            zIndex: 1,
+            color: 'common.white',
+            mt: { xs: 2, md: 5},
+            maxWidth: 570,
             fontWeight: 700,
-            fontSize: { xs: '0.8rem', sm: '0.95rem', md: '1.05rem' },
+            fontSize: { xs: '0.65rem', sm: '0.95rem', md: '1.05rem' },
             lineHeight: 1.65,
             animation: `${fadeInUp} 0.8s ease-out 0.2s forwards`,
             opacity: 0,
@@ -174,10 +140,12 @@ export const Hero = () => {
           variant="contained"
           size="large"
           sx={{
-            mt: { xs: 2.5, md: 3.5 },
-            px: { xs: 2.5, md: 3.5 },
-            py: { xs: 1.25, md: 1.5 },
-            fontSize: { xs: '0.9rem', md: '1rem' },
+            position: 'relative',
+            zIndex: 1,
+            mt: { xs: 2, md: 3.5 },
+            px: { xs: 2, md: 3.5 },
+            py: { xs: 1, md: 1.5 },
+            fontSize: { xs: '0.6rem', md: '0.9rem', md: '1rem' },
             fontWeight: 600,
             bgcolor: 'orange.main',
             color: 'common.white',
@@ -196,45 +164,8 @@ export const Hero = () => {
         >
           Consultar ahora
         </Button>
-
-  {/* Overlay: gradiente izquierda para legibilidad del título blanco */}
       </Box>
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '30%',
-          height: '100%',
-          background: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%)',
-          zIndex: 1,
-        }}
-      />
-      {/* Personaje*/}
-      <Box
-        sx={{
-          top: 0,
-          right: 0,
-          height: { xs: '0%', md: '100%' },
-          zIndex: 3,
-          display: 'flex',
-          alignItems: 'flex-end',
-          justifyContent: 'flex-end',
-        }}
-      >
-        <img
-          src={HERO_PERSONAJE}
-          alt=""
-          style={{
-            height: '100%',
-            width: '100%',
-            objectFit: 'contain',
-            objectPosition: 'bottom right',
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        />
-      </Box> 
+      
     </Box>
   );
 };

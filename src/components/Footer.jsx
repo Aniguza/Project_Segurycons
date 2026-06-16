@@ -29,9 +29,8 @@ export const Footer = () => {
                     maxWidth='1200px'
                     rowSpacing={4}
                     columnSpacing={{ xs: 1, sm: 7, md: 10 }}
-                    sx={{ px: 4, py: 6 }}
+                    sx={{ px: 5, py: 6 }}
                     alignItems="center"
-                    justifyContent="center"
                 >
                     {/* Logo */}
                     <Grid item size={{ xs: 12, sm: 3 }} sx={{ display: { xs: "none", md: "block" }, }} textAlign="center">
@@ -56,7 +55,7 @@ export const Footer = () => {
                     </Grid>
 
                     {/* Redes sociales */}
-                    <Grid item size={{ xs: 12, sm: 4 }} textAlign="left" >
+                    <Grid item size={{ xs: 12, sm: 6, md: 4.5 }} textAlign="left" >
                         <Typography variant="h6" gutterBottom mb={2}>
                             Nuestras redes sociales
                         </Typography>
